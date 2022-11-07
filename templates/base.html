@@ -22,7 +22,7 @@
 
 <body class="d-flex flex-column h-100 main-bg">
 
-    <!-- Navigation -->
+<!-- Navigation -->
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
@@ -38,8 +38,7 @@
                         <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
 
-    <!---Login and create account-->
-
+<!---Login and create account-->
                     {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout here</a>
@@ -59,11 +58,11 @@
             </div>
         </div>
     </nav>
-
+<!-- Display messages on page-->
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
-                {% for messages in messages %}
+                {% for message in messages %}
                 <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
                     {{ message | safe }}
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -74,6 +73,7 @@
     </div>
 
     <main class="flex-shrink-0 main-bg">
+
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}
@@ -87,6 +87,14 @@
             <i class="fab fa-instagram-square ms-3"></i>
             <i class="fab fa-youtube-square ms-3"></i></p>
     </footer>
+    <!-- This will automatically close the alert-->
+    <script>
+        setTimeout(function () {
+            let messages = document.getElementById('msg');
+            let alert = new bootstrap.Alert(messages);
+            alert.close();
+        }, 2500);
+    </script>
 </body>
 
 </html>

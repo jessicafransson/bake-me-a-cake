@@ -33,7 +33,7 @@ class PostDetail(View):
                 "comment_form": CommentForm()
             },
         )
-
+# view comments
     def post(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -67,7 +67,7 @@ class PostDetail(View):
             },
         )
 
-
+# view likes
 class PostLike(View):
 
     def post(self, request, slug):
@@ -77,5 +77,5 @@ class PostLike(View):
             post.likes.remove(request.user)
         else:
             post.likes.add(request.user)
-        
+
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))

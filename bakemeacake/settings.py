@@ -27,7 +27,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
+# IMPORTANT! CHANGE TO FALSE BEFORE DEPLOYMENT!
 DEBUG = True
 
 ALLOWED_HOSTS = ['bakemeacake2022.herokuapp.com', 'localhost']
@@ -54,7 +54,7 @@ INSTALLED_APPS = [
 ]
 
 SITE_ID = 1
-# for login and logout 
+# for login and logout
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
@@ -69,7 +69,7 @@ MESSAGE_TAGS = {
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-# avoiding error for creating an account 
+# avoiding error for creating an account
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 MIDDLEWARE = [
