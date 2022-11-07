@@ -30,6 +30,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # IMPORTANT! CHANGE TO FALSE BEFORE DEPLOYMENT!
 DEBUG = True
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
+
 ALLOWED_HOSTS = ['bakemeacake2022.herokuapp.com', 'localhost']
 
 
