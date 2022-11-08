@@ -75,26 +75,28 @@
     <main class="flex-shrink-0 main-bg">
 
         {% block content %}
-        <!-- Content Goes here -->
+<!-- Content Goes here -->
         {% endblock content %}
     </main>
 
-    <!-- Footer -->
-    <footer class="footer mt-auto py-3 dark-bg">
-        <p class="m-0 text-center text-white">Made by Jessica Fransson for Code Institute</p>
-        <p class="social-text">Check out my social medias!</p>
-        <a href="https://facebook.com" target="_blank" rel="noopener"
-        aria-label="Visit our Facebook page (opens in a new tab)"><i class="fa-brands fa-facebook"></i></a>
-        <a href="https://twitter.com" target="_blank" rel="noopener"
-        aria-label="Visit our Twitter page (opens in a new tab)"><i class="fa-brands fa-twitter"></i></a>
-        <a href="https://instagram.com" target="_blank" rel="noopener"
-        aria-label="Visit our Instagram page (opens in a new tab)"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://youtube.com" target="_blank" rel="noopener"
-        aria-label="Visit our Youtube page (opens in a new tab)"><i class="fa-brands fa-youtube"></i></a>
-    <!--font awesome script-->
+<!--Social media links  -->
+<section class="contact-section bg-black">
+    <div class="social d-flex justify-content-center">
+        <a class="mx-2" href="https://twitter.com/?lang=en" target="_blank"><i class="fab fa-twitter"></i></a>
+        <a class="mx-2" href="https://en-gb.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a class="mx-2" href="https://github.com/Chr15w1986/Metal-Re-injectionPP4" target="_blank"><i
+                class="fab fa-github"></i></a>
+    </div>
+</section>
+<!-- Footer-->
+<footer class="footer bg-black small text-center text-white-50">
+    <div class="container px-4 px-lg-5">Copyright &copy; J.Fransson CI Student 2022</div>
+</footer>
+
+<!--font awesome script-->
         <script src="https://kit.fontawesome.com/af04db9847.js" crossorigin="anonymous"></script>
     </footer>
-    <!-- This will automatically close the alert-->
+<!-- This will automatically close the alert-->
     <script>
         setTimeout(function () {
             let messages = document.getElementById('msg');
@@ -102,6 +104,7 @@
             alert.close();
         }, 2500);
     </script>
+
 </body>
 
 </html>
