@@ -6,6 +6,7 @@ from .forms import CommentForm
 
 # view the posts
 class PostList(generic.ListView):
+    """ How many posts is viewable per page """
     model = Post
     queryset = Post.objects.filter(status=1).order_by('created_on')
     template_name = 'index.html'
