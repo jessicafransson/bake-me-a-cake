@@ -1,9 +1,8 @@
 from django.shortcuts import render, get_object_or_404, reverse
-from django.views import generic, View, CreateView
+from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm
-from whitenoise import WhiteNoise
 
 # view the posts
 class PostList(generic.ListView):
@@ -37,25 +36,23 @@ class PostDetail(View):
         )
 # view comments
     def post(self, request, slug, *args, **kwargs):
+
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
-        comments = post.comments.filter(approved=True).order_by('created_on')
+        comments = post.comments.filter(approved=True).order_by("-created_on")
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
 
         comment_form = CommentForm(data=request.POST)
-
         if comment_form.is_valid():
             comment_form.instance.email = request.user.email
             comment_form.instance.name = request.user.username
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
-
         else:
             comment_form = CommentForm()
-
 
         return render(
             request,
@@ -64,17 +61,16 @@ class PostDetail(View):
                 "post": post,
                 "comments": comments,
                 "commented": True,
-                "liked": liked,
-                "comment_form": CommentForm()
+                "comment_form": comment_form,
+                "liked": liked
             },
         )
 
 # view likes
 class PostLike(View):
 
-    def post(self, request, slug):
+    def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
-
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
         else:
@@ -82,8 +78,19 @@ class PostLike(View):
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
-# create posts for users
-class AddPostView(CreateView):
-    model = Post
-    template_name = 'add_post.html'
-    fields = '__all__'
+# make users add posts
+class AddPost(View):
+
+    if request.method == "POST":
+        article_form = ArticleRegistrationForm(request.POST)
+
+        if article_form.is_valid():
+            article = article_form.save(commit=False)
+            article.author = request.user
+            article.save()
+            return redirect('article_list')
+
+        else:
+            article_form = ArticleRegistrationForm()
+
+        return render(request, 'account/add_article.html', {'article_form':article_form})
