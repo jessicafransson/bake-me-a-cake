@@ -1,10 +1,13 @@
 from django.shortcuts import render, get_object_or_404, reverse
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.urls import reverse_lazy
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm
 
-# view the posts
+
 class PostList(generic.ListView):
     """ How many posts is viewable per page """
     model = Post
@@ -12,9 +15,9 @@ class PostList(generic.ListView):
     template_name = 'index.html'
     paginate_by = 6
 
-# view comment and likes information
-class PostDetail(View):
 
+class PostDetail(View):
+    """ view comment and likes information """
     def get(self, request, slug, *args, **kwargs):
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
@@ -34,9 +37,9 @@ class PostDetail(View):
                 "comment_form": CommentForm()
             },
         )
-# view comments
-    def post(self, request, slug, *args, **kwargs):
 
+    def post(self, request, slug, *args, **kwargs):
+        """ # view comments """
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by("-created_on")
@@ -66,9 +69,9 @@ class PostDetail(View):
             },
         )
 
-# view likes
-class PostLike(View):
 
+class PostLike(View):
+    """ like posts """
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
@@ -77,3 +80,15 @@ class PostLike(View):
             post.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
+
+
+class CreatePost(CreateView, LoginRequiredMixin):
+    """ Create post form view to allow users to add a new post
+         while logged in"""
+    form_class = CommentForm
+    template_name = 'templates/create_post.html'
+    success_url = reverse_lazy('blog')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
