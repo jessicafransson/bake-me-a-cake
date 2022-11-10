@@ -84,7 +84,7 @@ class PostLike(View):
 
 # create posts for users
 class CreateForm(Post):
-    
+
     def article_form(request):
         if request.method == "POST":
             article_form = ArticleRegistrationForm(request.POST)
@@ -96,5 +96,5 @@ class CreateForm(Post):
                 return redirect('article_list')
         else:
             article_form = ArticleRegistrationForm()
-        
+
         return render(request, 'account/add_article.html', {'article_form': article_form})
