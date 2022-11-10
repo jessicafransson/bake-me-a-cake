@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse
-from django.views import generic, View
+from django.views import generic, View, CreateView
 from django.http import HttpResponseRedirect
 from .models import Post
 from .forms import CommentForm
@@ -83,18 +83,7 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 # create posts for users
-class CreateForm(Post):
-
-    def article_form(request):
-        if request.method == "POST":
-            article_form = ArticleRegistrationForm(request.POST)
-
-            if article_form.is_valid():
-                article = article_form.save(commit=False)
-                article.author = request.user
-                article.save()
-                return redirect('article_list')
-        else:
-            article_form = ArticleRegistrationForm()
-
-        return render(request, 'account/add_article.html', {'article_form': article_form})
+class AddPostView(CreateView):
+    model = Post
+    template_name = 'add_post.html'
+    fields = '__all__'
