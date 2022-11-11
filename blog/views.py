@@ -82,11 +82,11 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-class CreatePost(CreateView, LoginRequiredMixin):
+class CreatePost(LoginRequiredMixin, CreateView):
     """ Create post form view to allow users to add a new post
          while logged in"""
     form_class = CommentForm
-    template_name = 'templates/create_post.html'
+    template_name = 'create_post.html'
     success_url = reverse_lazy('blog')
 
     def form_valid(self, form):
