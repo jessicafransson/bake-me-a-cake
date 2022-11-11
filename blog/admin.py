@@ -3,7 +3,7 @@ from .models import Post, Comment
 from django_summernote.admin import SummernoteModelAdmin
 
 
-# for making the admin panel easier
+# for admin page to view comments and likes, and manage them
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
 
@@ -12,6 +12,7 @@ class PostAdmin(SummernoteModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     list_filter = ('status', 'created_on')
     summernote_fields = ('content')
+
 
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
