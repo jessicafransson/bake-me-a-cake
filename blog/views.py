@@ -92,3 +92,23 @@ class CreatePost(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+
+
+def edit_post(request, item_id):
+    item = get_object_or_404(Item, id=item_id)
+    if request.method == "POST":
+        form = ItemForm(request.POST, instance=item)
+        if form.is_valid():
+            form.save()
+            return redirect("add_post")
+            form = ItemForm(instance=item)
+            context = {
+		"form": form
+        }
+    return render(request, "todo/edit_post.html", context)
+
+
+def delete_item(request, item_id):
+	item = get_object_or_404(Item, id=item_id)
+	item.delete()
+	return redirect("get_create_post")

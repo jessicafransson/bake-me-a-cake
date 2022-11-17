@@ -1,6 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+<form method=”POST” action=”add”>
+    {% csrf_token %}
+	<div>
+		<p>
+			<label for=”id_name”>Recipe</label>
+			<input type=”text” id=”id_name” name=”item_name” />
+		</p>
+	</div>
+
+
+ </form>
+
+
 <!--Submit button-->
 <a href="#!" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Add your recipe here</a>
 
