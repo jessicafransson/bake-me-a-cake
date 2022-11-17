@@ -94,7 +94,7 @@ class CreatePost(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-def edit_post(request, item_id):
+class EditPost(request, item_id):
     """edit the items for the user"""
     item = get_object_or_404(Item, id=item_id)
     if request.method == "POST":
