@@ -94,19 +94,13 @@ class CreatePost(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class EditPost(request, item_id):
+class EditPost(LoginRequiredMixin, UpdateView):
     """edit the items for the user"""
-    item = get_object_or_404(Item, id=item_id)
-    if request.method == "POST":
-        form = ItemForm(request.POST, instance=item)
-        if form.is_valid():
-            form.save()
-            return redirect("add_post")
-            form = ItemForm(instance=item)
-            context = {
-                "form": form
-                }
-    return render(request, "todo/edit_post.html", context)
+    model = Post
+    
+    def get_queryset(self):
+        x = self.request.user.pk
+        post = get_object_or_404(Item, id=item_id)
 
 
 class DeletePost():
@@ -114,4 +108,4 @@ class DeletePost():
     def delete_post(request, item_id):
         form = get_object_or_404(Item, id=item_id)
         form.delete()
-        return redirect("get_create_post")
+        return redirect("/create_post")
