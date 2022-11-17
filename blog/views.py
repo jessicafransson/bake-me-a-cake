@@ -39,7 +39,7 @@ class PostDetail(View):
         )
 
     def post(self, request, slug, *args, **kwargs):
-        """ # view comments """
+        """ view comments """
         queryset = Post.objects.filter(status=1)
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(approved=True).order_by("-created_on")
@@ -71,7 +71,7 @@ class PostDetail(View):
 
 
 class PostLike(View):
-    """ like posts """
+    """ allow to like posts """
     def post(self, request, slug, *args, **kwargs):
         post = get_object_or_404(Post, slug=slug)
         if post.likes.filter(id=request.user.id).exists():
@@ -95,6 +95,7 @@ class CreatePost(LoginRequiredMixin, CreateView):
 
 
 def edit_post(request, item_id):
+    """edit the items for the user"""
     item = get_object_or_404(Item, id=item_id)
     if request.method == "POST":
         form = ItemForm(request.POST, instance=item)
@@ -103,12 +104,14 @@ def edit_post(request, item_id):
             return redirect("add_post")
             form = ItemForm(instance=item)
             context = {
-		"form": form
-        }
+                "form": form
+                }
     return render(request, "todo/edit_post.html", context)
 
 
-def delete_item(request, item_id):
-	item = get_object_or_404(Item, id=item_id)
-	item.delete()
-	return redirect("get_create_post")
+class DeletePost():
+    """delete the post for the user here"""
+    def delete_post(request, item_id):
+        form = get_object_or_404(Item, id=item_id)
+        form.delete()
+        return redirect("get_create_post")
