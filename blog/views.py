@@ -2,9 +2,9 @@ from django.shortcuts import render, get_object_or_404, reverse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
-from django.views import generic, View
+from django.views import generic, View    
 from django.http import HttpResponseRedirect
-from .models import Post
+from .models import Post, Comment
 from .forms import CommentForm
 
 
@@ -94,16 +94,16 @@ class CreatePost(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class EditPost(LoginRequiredMixin, UpdateView):
+class UpdatePost(LoginRequiredMixin, UpdateView):
     """edit the items for the user"""
     model = Post
-    
+
     def get_queryset(self):
         x = self.request.user.pk
         post = get_object_or_404(Item, id=item_id)
 
 
-class DeletePost():
+class DeletePost(LoginRequiredMixin, DeleteView):
     """delete the post for the user here"""
     def delete_post(request, item_id):
         form = get_object_or_404(Item, id=item_id)
