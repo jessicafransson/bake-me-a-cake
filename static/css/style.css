@@ -1,5 +1,5 @@
 body {
-    background-color: #23BBBB;
+    background-color: #488181;
 }
 
 .brand {
@@ -43,7 +43,7 @@ body {
     bottom: 5%;
     min-width: 30%;
     left: -2px;
-    background-color: #23BBBB;
+    background-color: #ebd4e8;
 }
 
 .author {
@@ -93,7 +93,7 @@ body {
 
 .post-link:hover,
 .page-link {
-    color: #E84610;
+    color: #da8164;
 }
 
 .post-title {
@@ -114,7 +114,7 @@ body {
 .btn-signup:hover,
 .btn-signup:active {
     background-color: #fff;
-    color: #23BBBB;
+    color: #da8164;
 }
 
 .link {
