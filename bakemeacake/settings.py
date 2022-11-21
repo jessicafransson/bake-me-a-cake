@@ -59,8 +59,9 @@ INSTALLED_APPS = [
     'cloudinary_storage',
 ]
 
+# to handle multiple sites from one database
 SITE_ID = 1
-# for login and logout
+# for login and logout to redirect to homepage
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
