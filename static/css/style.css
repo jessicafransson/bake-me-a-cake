@@ -118,7 +118,7 @@ body {
 }
 
 .link {
-    color: #23BBBB;
+    color: #040404;
     text-decoration: none;
 }
 
@@ -154,18 +154,18 @@ body {
     text-align: center;
     height: 3rem;
     width: 3rem;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(41, 40, 40, 0.1);
     border-radius: 100%;
     line-height: 3rem;
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(2, 1, 1, 0.3);
   }
   
   .contact-section .social a:hover {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(10, 10, 10, 0.5);
   }
   
   .contact-section .social a:active {
-    color: #fff;
+    color: rgb(78, 78, 78);
   }
   
   /*------------------------------ Footer styling */
