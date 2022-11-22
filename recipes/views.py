@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import CreateView, UpdateView, DeleteView
 
 class CreatePost(LoginRequiredMixin, CreateView):
     """ Create post form view to allow users to add a new post
