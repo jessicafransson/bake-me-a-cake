@@ -85,6 +85,7 @@ class PostLike(View):
 class CreatePost(LoginRequiredMixin, CreateView):
     """ Create post form view to allow users to add a new post
          while logged in"""
+    model = Post
     form_class = CommentForm
     template_name = 'create_post.html'
     success_url = reverse_lazy('blog')
