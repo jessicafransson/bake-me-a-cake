@@ -107,7 +107,7 @@ body {
 }
 
 .btn-signup {
-    background-color: #23BBBB;
+    background-color: #da8164;
     color: #fff;
 }
 
@@ -124,7 +124,7 @@ body {
 
 .link:hover,
 .link:active {
-    color: #445261;
+    color: #da8164;
     text-decoration: underline;
 }
 
@@ -161,7 +161,7 @@ body {
   }
   
   .contact-section .social a:hover {
-    color: rgba(10, 10, 10, 0.5);
+    color: #da8164;
   }
   
   .contact-section .social a:active {
