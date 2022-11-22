@@ -6,6 +6,7 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import CommentForm
+from django import forms
 
 
 class PostList(generic.ListView):

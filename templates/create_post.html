@@ -2,17 +2,13 @@
 
 {% block content %}
 
-<form method=”POST” action=”add”>
+<h3>Add your own recipe here...</h3>
+
+<form method="POST">
     {% csrf_token %}
-    <h3>Add your own recipe here...</h3>
-
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-secondary">Post it for approval! 
-        </button>
+    {{ form.as_p }}
+        
+    <button class="btn btn-secondary">Post it for approval!</button>
     </form>
-
-</form>
 
 {% endblock %}
