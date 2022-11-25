@@ -46,8 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_summernote',
     'crispy_forms',
-    'blog',
-    'recipes',
+    'recipe',
 
     # Authorisation:
     'django.contrib.sites',

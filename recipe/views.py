@@ -89,7 +89,7 @@ class CreatePost(LoginRequiredMixin, CreateView):
     model = Post
     form_class = CommentForm
     template_name = 'create_post.html'
-    success_url = reverse_lazy('blog')
+    success_url = reverse_lazy('recipe')
 
     def form_valid(self, form):
         form.instance.author = self.request.user
