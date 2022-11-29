@@ -83,12 +83,12 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-class CreatePost(LoginRequiredMixin, CreateView):
+class CreateRecipe(LoginRequiredMixin, CreateView):
     """ Create post form view to allow users to add a new post
          while logged in"""
     model = Post
     form_class = CommentForm
-    template_name = 'create_post.html'
+    template_name = 'create_recipe.html'
     success_url = reverse_lazy('recipe')
 
     def form_valid(self, form):
@@ -96,7 +96,7 @@ class CreatePost(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class UpdatePost(LoginRequiredMixin, UpdateView):
+class UpdateRecipe(LoginRequiredMixin, UpdateView):
     """edit the items for the user"""
     model = Post
 
@@ -105,9 +105,9 @@ class UpdatePost(LoginRequiredMixin, UpdateView):
         post = get_object_or_404(Item, id=item_id)
 
 
-class DeletePost(LoginRequiredMixin, DeleteView):
+class DeleteRecipe(LoginRequiredMixin, DeleteView):
     """delete the post for the user here"""
     def delete_post(request, item_id):
         form = get_object_or_404(Item, id=item_id)
         form.delete()
-        return redirect("/create_post")
+        return redirect("/create_recipe")

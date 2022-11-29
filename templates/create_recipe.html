@@ -9,9 +9,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <h3>Add your own recipe here...</h3>
 
-<form method="POST">
-    {% csrf_token %}
-    {{ form.as_p }}
+    <form action="addrecord/" method="post">
+        {% csrf_token %}
+        <br><br>
+        Ingredients:<br>
+        <input ingredients="recipe">
+        <br><br>
+        {{ form.as_p }}
+        </form>
         
     <button class="btn btn-secondary">Post it for approval!</button>
     </form>
