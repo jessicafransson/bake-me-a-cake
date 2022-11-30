@@ -86,7 +86,7 @@ class PostLike(View):
 class CreateRecipe(LoginRequiredMixin, CreateView):
     """ Create post form view to allow users to add a new post
          while logged in"""
-    # model = Post
+    model = Post
     form_class = CreateView
     template_name = 'create_recipe.html'
     success_url = reverse_lazy('recipe')
@@ -99,6 +99,7 @@ class CreateRecipe(LoginRequiredMixin, CreateView):
 class UpdateRecipe(LoginRequiredMixin, UpdateView):
     """edit the items for the user"""
     model = Post
+    form_class = UpdateView
 
     def get_queryset(self):
         x = self.request.user.pk
@@ -107,6 +108,9 @@ class UpdateRecipe(LoginRequiredMixin, UpdateView):
 
 class DeleteRecipe(LoginRequiredMixin, DeleteView):
     """delete the post for the user here"""
+
+    form_class = DeleteView
+
     def delete_post(request, item_id):
         form = get_object_or_404(Item, id=item_id)
         form.delete()
