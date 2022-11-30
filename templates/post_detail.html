@@ -80,7 +80,7 @@
                         <!-- The users name goes here for who's adding the comment -->
                         {{ comment.name }}
                         <span class=" text-muted font-weight-normal">
-                            <!-- The comment goes here -->
+                            <!-- The written comment goes here -->
                             {{ comment.created_on }}
                         </span> wrote:
                     </p>
@@ -93,7 +93,7 @@
         </div>
         <div class="col-md-4 card mb-4  mt-3 ">
             <div class="card-body">
-                <!-- For the comments submit-->
+                <!-- For the comments submit that user is authenticated-->
                 {% if commented %}
                 <div class="alert alert-success" role="alert">
                     Your comment is awaiting approval!
