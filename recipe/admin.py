@@ -13,6 +13,7 @@ class PostAdmin(SummernoteModelAdmin):
     summernote_fields = ('content')
     list_filter = ('status', 'created_on')
 
+
 # for managing the comments left on the posts
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
