@@ -3,16 +3,17 @@ from .models import Post, Comment
 from django_summernote.admin import SummernoteModelAdmin
 
 
-# for admin page to view comments and likes, and manage them
+# for managing the admin pages own posts, filtering and automatic slug for url
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
 
     list_display = ('title', 'slug', 'status', 'created_on')
     search_fields = ['title', 'content']
     prepopulated_fields = {'slug': ('title',)}
+    summernote_fields = ('content')
     list_filter = ('status', 'created_on')
 
-
+# for managing the comments left on the posts
 @admin.register(Comment)
 class CommentAdmin(admin.ModelAdmin):
 

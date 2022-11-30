@@ -10,7 +10,7 @@ from django import forms
 
 
 class PostList(generic.ListView):
-    """ View posts and how many posts is viewable per page """
+    """ View published recipes and how many are viewable per page """
     model = Post
     queryset = Post.objects.filter(status=1).order_by('created_on')
     template_name = 'index.html'
@@ -86,8 +86,8 @@ class PostLike(View):
 class CreateView(LoginRequiredMixin, CreateView):
     """ Create post form view to allow users to add a new post
          while logged in"""
-    model = PostForm
-    form_class = PostForm
+    model = Post
+    form_class = Post
     template_name = 'create_recipe.html'
     success_url = reverse_lazy('recipe')
 
