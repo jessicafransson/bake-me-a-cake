@@ -3,22 +3,22 @@
 {% block content %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <h3>Add your own recipe here...</h3>
 
-    <form action="" method="post">
-        {% csrf_token %}
-        <br><br>
-        Ingredients:<br>
-        <input ingredients="recipe">
-        <br><br>
-        {{ form.as_p }}
+    <ul>
+        <form action="" method="post">
+            {% csrf_token %}
+            <br><br>
+            Ingredients:<br>
+            <input ingredients="recipe">
+            <br><br>
+            {{ form_as.p }}
         </form>
-        
-    <button class="btn btn-secondary">Post it for approval!</button>
-    </form>
+    </ul>
 
-{% endblock %}
+    {% endblock %}
