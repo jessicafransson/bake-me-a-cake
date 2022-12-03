@@ -100,6 +100,7 @@ class UpdateRecipe(LoginRequiredMixin, UpdateView):
     """edit the items for the user"""
     model = Post
     form_class = UpdateView
+    template_name = 'update_recipe.html'
 
     def get_queryset(self):
         x = self.request.user.pk
@@ -110,6 +111,7 @@ class DeleteRecipe(LoginRequiredMixin, DeleteView):
     """delete the post for the user here"""
 
     form_class = DeleteView
+    template_name = 'delete_recipe.html'
 
     def delete_post(request, item_id):
         form = get_object_or_404(Item, id=item_id)
