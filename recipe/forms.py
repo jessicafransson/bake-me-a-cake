@@ -2,6 +2,7 @@ from .models import Comment
 from django import forms
 
 
+# what model form to use, and what fields to display
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
