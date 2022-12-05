@@ -96,12 +96,12 @@
                 <!-- For the comments submit that user is authenticated-->
                 {% if commented %}
                 <div class="alert alert-success" role="alert">
-                    Your comment is awaiting approval!
+                    Your comment is waiting to be approved!
                 </div>
                 {% else %}
                 {% if user.is_authenticated %}
 
-                <h3>Leave a comment:</h3>
+                <h3>Leave some feedback:</h3>
                 <p>Posting as: {{ user.username }}</p>
                 <form method="post" style="margin-top: 1.3em;">
                     {{ comment_form | crispy }}
