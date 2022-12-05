@@ -26,6 +26,7 @@ class Post(models.Model):
         return self.likes.count()
 
 
+# for comments on the recipes
 class Comment(models.Model):
 
     post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name='comments')
