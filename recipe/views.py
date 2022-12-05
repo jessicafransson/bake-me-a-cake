@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post, Comment
-from .forms import CommentForm
+from .forms import CommentForm, CreateRecipe
 from django import forms
 
 
@@ -87,7 +87,7 @@ class CreateRecipe(LoginRequiredMixin, CreateView):
     """ Create post form view to allow users to add a new post
          while logged in"""
     model = Post
-    form_class = CreateView
+    fields = '__all__'
     template_name = 'create_recipe.html'
     success_url = reverse_lazy('recipe')
 
@@ -109,7 +109,7 @@ class UpdateRecipe(LoginRequiredMixin, UpdateView):
 
 class DeleteRecipe(LoginRequiredMixin, DeleteView):
     """delete the post for the user here"""
-
+    model = Post
     form_class = DeleteView
     template_name = 'delete_recipe.html'
 

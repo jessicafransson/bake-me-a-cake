@@ -8,18 +8,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <h3>Add your own recipe here...</h3>
 
-    <ul>
-        <form action="" method="post">
-            {% csrf_token %}
-            <br><br>
-            Ingredients:<br>
-            <input ingredients="recipe">
-            <br><br>
-            {{ form_as.p }}
-        </form>
-    </ul>
 
-    <a href='{% url "create_recipe" %}'>Post it for approval!</a>
+
+    <form action='' method="POST">
+        <h3>Add your own recipes</h3>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button style='margin-top:10px;' type="submit">Add your recipes here</button>
+    </form>
+
+
     {% endblock %}
