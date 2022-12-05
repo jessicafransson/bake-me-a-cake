@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'crispy_forms',
     'recipe',
+    'bootstrap5',
 
     # Authorisation:
     'django.contrib.sites',
