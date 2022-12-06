@@ -87,7 +87,11 @@ class CreateRecipe(LoginRequiredMixin, CreateView):
     """ Create post form view to allow users to add a new post
          while logged in"""
     model = Post
-    fields = '__all__'
+    fields = [
+        "title",
+        "content",
+        "featured_image",
+    ]
     template_name = 'create_recipe.html'
     success_url = reverse_lazy('recipe')
 
