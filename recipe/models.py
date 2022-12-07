@@ -1,11 +1,15 @@
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
+from django.urls import reverse
+from django.utils.text import slugify
 
 STATUS = ((0, "Draft"), (1, "Published"))
 
+
 # for added recipes
 class Post(models.Model):
+
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="recipe_post")
@@ -24,6 +28,14 @@ class Post(models.Model):
 
     def number_of_likes(self):
         return self.likes.count()
+
+    def get_absolute_url(self):
+        return reverse('post_detail')
+
+    def save(self, *args, **kwargs):
+        if not self.slug: 
+            self.slug = slugify(self.title) 
+            return super().save(*args, **kwargs)
 
 
 # for comments on the recipes

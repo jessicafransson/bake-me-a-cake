@@ -93,7 +93,7 @@ class CreateRecipe(LoginRequiredMixin, CreateView):
         "featured_image",
     ]
     template_name = 'create_recipe.html'
-    success_url = reverse_lazy('recipe')
+    success_url = reverse_lazy('/')
 
     def form_valid(self, form):
         form.instance.author = self.request.user

@@ -9,13 +9,13 @@ class CommentForm(forms.ModelForm):
         fields = ('body',)
 
 
-class CreateRecipe(forms.Form):
+class CreateRecipe(forms.ModelForm):
     class Meta:
         title = forms.CharField()
         content = forms.CharField()
 
         def clean_title(self):
-            cleaned_data = self.cleaned_data # dictionary
+            cleaned_data = self.cleaned_data  # dictionary
             print(cleaned_data)
             title = cleaned_data.get('title')
             print(title)
