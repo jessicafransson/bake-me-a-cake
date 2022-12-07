@@ -7,6 +7,7 @@ from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import CommentForm, CreateRecipe
 from django import forms
+from django.contrib import messages
 
 
 class PostList(generic.ListView):
