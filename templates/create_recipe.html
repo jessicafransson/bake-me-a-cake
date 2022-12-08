@@ -19,5 +19,12 @@
         {{ form.as_p }}
         <button style='margin-top:10px;' type="submit">Add your recipes here</button>
     </form>
+    {% if messages %}
+    {% for message in messages %}
+        <div class="text-center alert alert-{{ message.tags }}">
+            {{ message|safe }}
+        </div>
+    {% endfor %}
+{% endif %}
 
     {% endblock %}

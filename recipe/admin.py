@@ -6,7 +6,7 @@ from django_summernote.admin import SummernoteModelAdmin
 # for managing the admin pages own posts, filtering and automatic slug for url
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
-    
+
     list_display = ('title', 'slug', 'status', 'created_on')
     search_fields = ['title', 'content']
     prepopulated_fields = {'slug': ('title',)}

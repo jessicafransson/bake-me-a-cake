@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, reverse
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views import generic, View
 from django.http import HttpResponseRedirect
@@ -50,12 +51,14 @@ class PostDetail(View):
             liked = True
 
         comment_form = CommentForm(data=request.POST)
+
         if comment_form.is_valid():
             comment_form.instance.email = request.user.email
             comment_form.instance.name = request.user.username
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
+            messages.success(request, 'Comment Saved!')
         else:
             comment_form = CommentForm()
 
@@ -84,7 +87,7 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('post_detail', args=[slug]))
 
 
-class CreateRecipe(LoginRequiredMixin, CreateView):
+class CreateRecipe(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     """ Create post form view to allow users to add a new post
          while logged in"""
     model = Post
@@ -100,6 +103,8 @@ class CreateRecipe(LoginRequiredMixin, CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
         return redirect("/create_recipe")
+
+    success_message = 'Recipe added succesfully, will be sent to admin for approval!'
 
 
 class UpdateRecipe(LoginRequiredMixin, UpdateView):
