@@ -7,8 +7,10 @@ from django.utils.text import slugify
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
-# for added recipes
 class Post(models.Model):
+    """
+    The model for adding recipes to the database
+    """
 
     title = models.CharField(max_length=200, unique=True)
     slug = models.SlugField(max_length=200, unique=True)
@@ -25,6 +27,9 @@ class Post(models.Model):
         )
 
     class Meta:
+        """
+        Function to organize the recipes
+        """
         ordering = ['-created_on']
 
     def __str__(self):
@@ -42,13 +47,14 @@ class Post(models.Model):
         return super().save(*args, **kwargs)
 
 
-# for comments on the recipes
 class Comment(models.Model):
+    """
+    For leaving comments on the recipes
+    """
 
     post = models.ForeignKey(Post, on_delete=models.CASCADE,
                              related_name='comments')
     name = models.CharField(max_length=80)
-    email = models.EmailField()
     body = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=False)
