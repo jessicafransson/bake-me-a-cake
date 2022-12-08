@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% block title %} Update your recipe{% endblock %}
 {% block content %}
 
 <!DOCTYPE html>
@@ -11,13 +12,13 @@
 </head>
 <body>
     <body>
-        <h1>Edit your recipe:</h1>
+        <h3>Edit your recipe:</h3>
         <form method=”POST”>
         {% csrf_token %}
         {{% form.as_p %}}
         <div>
             <p>
-                <button type=”submit”>Update your recipe</button>
+                <a class="btn btn-success btn-lg" href="{% url 'create_recipe' %}">Update!</a>
             </p>
         </div>
     </form>

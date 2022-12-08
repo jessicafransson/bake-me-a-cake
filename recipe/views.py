@@ -107,6 +107,11 @@ class UpdateRecipe(LoginRequiredMixin, UpdateView):
     model = Post
     form_class = UpdateView
     template_name = 'update_recipe.html'
+    fields = [
+        "title",
+        "content",
+        "featured_image",
+    ]
 
     def get_queryset(self):
         x = self.request.user.pk
