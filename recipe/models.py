@@ -51,7 +51,6 @@ class Comment(models.Model):
     """
     For leaving comments on the recipes
     """
-
     post = models.ForeignKey(Post, on_delete=models.CASCADE,
                              related_name='comments')
     name = models.CharField(max_length=80)
