@@ -104,7 +104,7 @@ class CreateRecipe(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         return super().form_valid(form)
         return redirect("/create_recipe")
 
-    success_message = 'Recipe added succesfully, will be sent to admin for approval!'
+    success_message = 'Recipe added succesfully, await approval!'
 
 
 class UpdateRecipe(LoginRequiredMixin, UpdateView):
