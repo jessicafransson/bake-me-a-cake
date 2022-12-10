@@ -1,62 +1,65 @@
 {% load static %}
-
 <!DOCTYPE html>
-<html class="h-100">
 <html lang="en">
 
 <head>
-    <title>Bake me a cake</title>
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
-    </script>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spice up your life...</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'images/taj-mahal.png' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'styles/style.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ms+Madi&family=Noto+Serif+Georgian&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/7beb4c51dd.js" crossorigin="anonymous"></script>
 </head>
 
+<body>
+    <!--
 <body class="d-flex flex-column h-100 main-bg">
-
-<!-- Navigation -->
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+-->
+    <!--Navigation bar-->
+    <nav class="navbar fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class=”brand">bake me a<span
-                class="thin"> cake</span></span></span></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-                    </li>
-
-<!---Login, logout and create account-->
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_logout' %}">Logout here</a>
-                    </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_login' %}">Login here</a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </div>
         </div>
     </nav>
-<!-- Display messages on page-->
+    <nav class="navbar navbar-light" style="background-color: #f6d4e5;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'home' %}">Bake me a cake <img alt="image of a cupcake"
+                    class="cupcake-icon" src="{% static 'images/cupcake.png' %}">
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                        </li>
+
+                        <!---Login, logout and create account-->
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_logout' %}">Logout here</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'account_login' %}">Login here</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+        </div>
+    </nav>
+    <!-- Display messages on page-->
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
@@ -73,34 +76,35 @@
     <main class="flex-shrink-0 main-bg">
 
         {% block content %}
-<!-- Content Goes here -->
+        <!-- Content Goes here -->
         {% endblock content %}
     </main>
-
+</body>
 
 
 <!-- Footer-->
 <section class="contact-section bg-white">
-<footer class="footer bg-black small text-center text-grey-50">
-<div class="container px-4 px-lg-5">Copyright &copy; J.Fransson CI Student 2022</div>
-<!--Social media links  -->
+    <footer class="footer bg-black small text-center text-grey-50">
+        <div class="container px-4 px-lg-5">Copyright &copy; J.Fransson CI Student 2022</div>
+        <!--Social media links  -->
 
-    <div class="social d-flex justify-content-center">
-        <a class="mx-2" href="https://twitter.com/?lang=en" target="_blank"><i class="fab fa-twitter"></i></a>
-        <a class="mx-2" href="https://en-gb.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a class="mx-2" href="https://github.com/jessicafransson/bake-me-a-cake" target="_blank"><i class="fab fa-github"></i></a>
-    </div>
+        <div class="social d-flex justify-content-center">
+            <a class="mx-2" href="https://twitter.com/?lang=en" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a class="mx-2" href="https://en-gb.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a class="mx-2" href="https://github.com/jessicafransson/bake-me-a-cake" target="_blank"><i
+                    class="fab fa-github"></i></a>
+        </div>
 </section>
 </footer>
 
 <!-- This will automatically close the alert-->
-    <script>
-        setTimeout(function () {
-            let messages = document.getElementById('msg');
-            let alert = new bootstrap.Alert(messages);
-            alert.close();
-        }, 2500);
-    </script>
+<script>
+    setTimeout(function () {
+        let messages = document.getElementById('msg');
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+    }, 2500);
+</script>
 
 
 <!--font awesome script-->
