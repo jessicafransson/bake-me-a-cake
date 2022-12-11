@@ -15,7 +15,7 @@ class Post(models.Model):
     description = models.CharField(max_length=200, blank=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="post_detail"
+        User, on_delete=models.CASCADE, related_name="post_detail", null=True
         )
     likes = models.ManyToManyField(
         User, related_name='recipe_likes', blank=True

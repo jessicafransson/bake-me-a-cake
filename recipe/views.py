@@ -87,25 +87,11 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
 
 
-class CreateRecipe(LoginRequiredMixin, SuccessMessageMixin, CreateView):
-    """ Create post form view to allow users to add a new post
-         while logged in"""
+class CreateRecipe(CreateView):
     model = Post
-    fields = [
-        "title",
-        "description",
-        "content",
-        "featured_image",
-    ]
+    form_class = CreateRecipe
     template_name = 'create_recipe.html'
-    success_url = reverse_lazy("create_recipe")
-
-    def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form)
-        return redirect("/create_recipe")
-
-    success_message = 'Recipe added succesfully, await approval!'
+    success_url = reverse_lazy('home')
 
 
 class UpdateRecipe(LoginRequiredMixin, UpdateView):

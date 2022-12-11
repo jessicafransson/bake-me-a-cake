@@ -21,10 +21,3 @@ class CreateRecipe(forms.ModelForm):
         fields = (
             'title', 'content',
         )
-
-        # def clean_title(self):
-            # cleaned_data = self.cleaned_data  # dictionary
-            # print(cleaned_data)
-            # title = cleaned_data.get('title')
-            # print(title)
-            # return title
