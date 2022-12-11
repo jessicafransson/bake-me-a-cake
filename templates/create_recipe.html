@@ -2,14 +2,14 @@
 {% load static %}
 {% block content %}
 
-<main class="container text-center g-5 mt-5"
+<main class="container text-center g-5 mt-5">
 
 <form method="POST">
         <h3>Add your own recipes</h3>
         {% csrf_token %}
         {{ form.as_p }}
         <button style='margin-top:10px;' type="submit">Add your recipes here</button>
-    </form>
+</form>
     {% if messages %}
     {% for message in messages %}
         <div class="text-center alert alert-{{ message.tags }}">
@@ -17,6 +17,5 @@
         </div>
     {% endfor %}
 {% endif %}
-
 </main>
 {% endblock %}
