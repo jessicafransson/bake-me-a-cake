@@ -34,7 +34,7 @@
                         </div>
                     </div>
                 </div>
-                {% if forloop.counter|divisibleby:3 %}
+                {% if forloop.counter|divisibleby:2 %}
             </div>
             <div class="row">
                 {% endif %}
@@ -42,8 +42,6 @@
             </div>
         </div>
     </div>
-    <!-- Clickable button for user to add their own recipes-->
-    <a href="{% url 'create_recipe' %}">Add your recipes here</a>
     <!--If more than 6 recipes, start a new page-->
     {% if is_paginated %}
     <nav aria-label="Page navigation">
