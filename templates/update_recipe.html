@@ -1,26 +1,40 @@
 {% extends "base.html" %}
-{% load static %}
+
 {% block content %}
 
+{% load cloudinary %}
 
-<title>Edit your recipe</title>
+<!-- Check to se if the logged in user is the creater of the recipe trying to edit -->
+{% if user.is_authenticated and user.id == recipe.author.id %}
 
-<body>
-    <body>
-        <h3>Edit your recipe:</h3>
-        <form method=”POST”>
-        {% csrf_token %}
-        {{% form.as_p %}}
-        <div>
-            <p>
-                {% if user.is_authenticated %}
-                <a class="btn btn-success btn-lg" href="{% url 'update_recipe' %}">Update!</a>
-                {% endif %}
-            </p>
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h1 class="display-2 text-center mt-2">Edit Recipe</h1>
+            <hr>
         </div>
-    </form>
-    </body>
-</body>
-</html>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-10 offset-1">
+        <form class="signup" id="create_recipe_form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-secondary right mb-2" type="submit" value="Save">Save changes</button>
+        </form>
+    </div>
+</div>
+
+<!-- If user isnt authenticated to make changes -->
+{% elif user.is_authenticated %}
+
+    {% include "forbidden_access.html" %}
+
+{% else %}
+
+    {% include "not_logged_in_error.html" %}
+
+{% endif %}
 
 {% endblock %}
