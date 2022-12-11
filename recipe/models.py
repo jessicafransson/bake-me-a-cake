@@ -13,18 +13,19 @@ class Post(models.Model):
     """
 
     title = models.CharField(max_length=200, unique=True)
+    description = models.CharField(max_length=200, blank=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="recipe_post"
         )
-    updated_on = models.DateTimeField(auto_now=True)
-    content = models.TextField(blank=True, null=True)
-    featured_image = CloudinaryField('image', default='placeholder')
-    created_on = models.DateTimeField(auto_now_add=True)
-    status = models.IntegerField(choices=STATUS, default=0)
     likes = models.ManyToManyField(
         User, related_name='recipe_likes', blank=True
         )
+    content = models.TextField(blank=True, null=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    featured_image = CloudinaryField('image', default='placeholder')
+    created_on = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(choices=STATUS, default=0)
 
     class Meta:
         """

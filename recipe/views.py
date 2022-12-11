@@ -93,6 +93,7 @@ class CreateRecipe(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Post
     fields = [
         "title",
+        "description",
         "content",
         "featured_image",
     ]
