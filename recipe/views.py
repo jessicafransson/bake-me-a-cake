@@ -1,10 +1,10 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
+from django.http import HttpResponseRedirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views import generic, View
-from django.http import HttpResponseRedirect
 from .models import Post, Comment
 from .forms import CommentForm, CreateRecipe
 from django import forms
@@ -111,17 +111,8 @@ class CreateRecipe(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 class UpdateRecipe(LoginRequiredMixin, UpdateView):
     """edit the items for the user"""
     model = Post
-    form_class = UpdateView
+    form_class = CreateRecipe
     template_name = 'update_recipe.html'
-    fields = [
-        "title",
-        "content",
-        "featured_image",
-    ]
-
-    def get_queryset(self):
-        x = self.request.user.pk
-        post = get_object_or_404(Item, id=item_id)
 
 
 class DeleteRecipe(LoginRequiredMixin, DeleteView):

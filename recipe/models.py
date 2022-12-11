@@ -11,12 +11,11 @@ class Post(models.Model):
     """
     The model for adding recipes to the database
     """
-
     title = models.CharField(max_length=200, unique=True)
     description = models.CharField(max_length=200, blank=True)
     slug = models.SlugField(max_length=200, unique=True)
     author = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="recipe_post"
+        User, on_delete=models.CASCADE, related_name="post_detail"
         )
     likes = models.ManyToManyField(
         User, related_name='recipe_likes', blank=True

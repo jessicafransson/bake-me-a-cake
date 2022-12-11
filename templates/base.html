@@ -25,98 +25,97 @@
         <div class="container-fluid">
         </div>
     </nav>
-    <nav class="navbar navbar-light" style="background-color: #f6d4e5;">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}">Bake me a cake <img alt="image of a cupcake"
-                    class="cupcake-icon" src="{% static 'images/cupcake.png' %}">
-            </a>
+            <nav class="navbar navbar-light" style="background-color: #f6d4e5;">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="{% url 'home' %}">Bake me a cake <img alt="image of a cupcake"
+                            class="cupcake-icon" src="{% static 'images/cupcake.png' %}">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                    <div class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+                                <!-- Clickable button for user to add their own recipes-->
+                                {% if user.is_authenticated %}
+                                <a href="{% url 'create_recipe' %}">Add your recipes here</a>
+                                {% endif %}
+                            </li>
 
-                        <!-- Clickable button for user to add their own recipes-->
-                        {% if user.is_authenticated %}
-                        <a href="{% url 'create_recipe' %}">Add your recipes here</a>
-                        {% endif %}
-                    </li>
-
-                    <!---Login, logout and create account-->
-                    {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
-                    </li>
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- Display messages on page-->
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 offset-md-2">
-                {% for message in messages %}
-                <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
-                    {{ message | safe }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <!---Login, logout and create account-->
+                            {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
+                            </li>
+                            {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'account_signup' %}">Register</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                    </div>
                 </div>
-                {% endfor %}
+            </nav>
+            <!-- Display messages on page-->
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        {% for message in messages %}
+                        <div class="alert {{ message.tags }} alert-dismissible fade show" id="msg" role="alert">
+                            {{ message | safe }}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
 
-    <main class="flex-shrink-0 main-bg">
-        <!-- Main content Goes here -->
-        {% block content %}
-        {% endblock content %}
-    </main>
+            <main class="flex-shrink-0 main-bg">
+                <!-- Main content Goes here -->
+                {% block content %}
+                {% endblock content %}
+            </main>
 </body>
 
-    <!-- Footer -->
+<!-- Footer -->
 
-    <footer class="padding-bottom text-center p-3" style="background-color: #f6d4e5;">
-        <div class="container px-4 px-lg-5">Copyright &copy; Jessica Fransson Code Institute Student 2022</div>
+<footer class="padding-bottom text-center p-3" style="background-color: #f6d4e5;">
+    <div class="container px-4 px-lg-5">Copyright &copy; Jessica Fransson Code Institute Student 2022</div>
 
-        <!--Social media links  -->
-        <div class="social d-flex justify-content-center">
-            <a href="https://twitter.com/?lang=en" class="me-4 text-reset" target="_blank"><i
-                    class="fab fa-twitter"></i></a>
-            <a href="https://en-gb.facebook.com/" class="me-4 text-reset" target="_blank"><i
-                    class="fab fa-facebook-f"></i></a>
-            <a href="https://github.com/jessicafransson/bake-me-a-cake" class="me-4 text-reset" target="_blank"><i
-                    class="fab fa-github"></i></a>
-        </div>
-        </section>
-    </footer>
+    <!--Social media links  -->
+    <div class="social d-flex justify-content-center">
+        <a href="https://twitter.com/?lang=en" class="me-4 text-reset" target="_blank"><i
+                class="fab fa-twitter"></i></a>
+        <a href="https://en-gb.facebook.com/" class="me-4 text-reset" target="_blank"><i
+                class="fab fa-facebook-f"></i></a>
+        <a href="https://github.com/jessicafransson/bake-me-a-cake" class="me-4 text-reset" target="_blank"><i
+                class="fab fa-github"></i></a>
+    </div>
+    </section>
+</footer>
 
-    <!-- This will automatically close the alert-->
-    <script>
-        setTimeout(function () {
-            let messages = document.getElementById('msg');
-            let alert = new bootstrap.Alert(messages);
-            alert.close();
-        }, 2500);
-    </script>
+<!-- This will automatically close the alert-->
+<script>
+    setTimeout(function () {
+        let messages = document.getElementById('msg');
+        let alert = new bootstrap.Alert(messages);
+        alert.close();
+    }, 2500);
+</script>
 
 
-    <!--font awesome script-->
-    <script src="https://kit.fontawesome.com/af04db9847.js" crossorigin="anonymous"></script>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core JS-->
-    <script src="{% static 'js/scripts.js' %}"></script>
-    </body>
+<!--font awesome script-->
+<script src="https://kit.fontawesome.com/af04db9847.js" crossorigin="anonymous"></script>
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core JS-->
+<script src="{% static 'js/scripts.js' %}"></script>
+</body>
 
 </html>

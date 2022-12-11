@@ -1,5 +1,5 @@
 from django.forms import ModelForm
-from .models import Comment
+from .models import Comment, Post
 from django import forms
 
 
@@ -15,12 +15,16 @@ class CommentForm(forms.ModelForm):
 
 class CreateRecipe(forms.ModelForm):
     class Meta:
-        title = forms.CharField()
-        content = forms.CharField()
+        # title = forms.CharField()
+        # content = forms.CharField()
+        model = Post
+        fields = (
+            'title', 'content',
+        )
 
-        def clean_title(self):
-            cleaned_data = self.cleaned_data  # dictionary
-            print(cleaned_data)
-            title = cleaned_data.get('title')
-            print(title)
-            return title
+        # def clean_title(self):
+            # cleaned_data = self.cleaned_data  # dictionary
+            # print(cleaned_data)
+            # title = cleaned_data.get('title')
+            # print(title)
+            # return title

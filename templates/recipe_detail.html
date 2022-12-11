@@ -1,6 +1,9 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+
 {% block content %}
+
 {% load static %}
+
 {% load crispy_forms_tags %}
 
 <main class="container text-center g-5">
@@ -22,99 +25,99 @@
             </div>
         </div>
     </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col card mb-4  mt-3 left  top">
-            <div class="card-body">
-                <!-- The recipe content goes inside the card-text. -->
-                <!-- Use the | safe filter inside the template tags -->
-            <p class="card-text ">
-                {{ post.content | safe }}
-            </p>
-            <div class="row">
-
-            <div class="col-1">
-                <strong>
-                {% if user.is_authenticated %}
-                    <form class="d-inline" action="{% url 'recipe_like' post.slug %}" method="POST">
-                    {% csrf_token %}
-                    {% if liked %}
-                    <button type="submit" name="recipepost_id" value="{{post.slug}}" class="btn-like">
-                        <i class="fas fa-heart"></i></button>
-                        {% else %}
-                    <button type="submit" name="recipepost_id" value="{{post.slug}}" class="btn-like">
-                        <i class="far fa-heart"></i></button>
-                        {% endif %}
-                    </form>
-                        {% else %}
-                    <span class="text-secondary"><i class="far fa-heart"></i></span>
-                        {% endif %}
-                    <!-- The number of likes goes before the closing strong tag -->
-                    <span class="text-secondary">{{ post.number_of_likes }} </span>
-                </strong>
-            </div>
-                <div class="col-1">
-                    {% with comments.count as total_comments %}
-                    <strong class="text-secondary"><i class="far fa-comments"></i>
-                        <!-- Our total comments variable goes before the closing strong tag -->
-                        {{ total_comments }}</strong>
-                        {% endwith %}
-                </div>
-            </div>
-            </div>
-        </div>
     </div>
-    <div class="row">
-        <div class="col">
-            <hr>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8 card mb-4  mt-3 ">
-            <h3>Comments:</h3>
-            <div class="card-body">
-                <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
-                {% for comment in comments %}
-                <div class="comments" style="padding: 10px;">
-                <p class="font-weight-bold">
-                    <!-- The users name goes here for who's adding the comment -->
-                    {{ comment.name }}
-                    <span class=" text-muted font-weight-normal">
-                        <!-- The written comment goes here -->
-                        {{ comment.created_on }}
-                    </span> wrote:
+
+    <div class="container">
+        <div class="row">
+            <div class="col card mb-4  mt-3 left  top">
+                <div class="card-body">
+                    <!-- The recipe content goes inside the card-text. -->
+                    <!-- Use the | safe filter inside the template tags -->
+                    <p class="card-text ">
+                        {{ post.content | safe }}
                     </p>
-                    <!-- The body of the comment goes before the | -->
-                    {{ comment.body | linebreaks }}
+                    <div class="row">
+
+                        <div class="col-1">
+                            <strong>
+                                {% if user.is_authenticated %}
+                                <form class="d-inline" action="{% url 'recipe_like' post.slug %}" method="POST">
+                                    {% csrf_token %}
+                                    {% if liked %}
+                                    <button type="submit" name="recipepost_id" value="{{post.slug}}" class="btn-like">
+                                        <i class="fas fa-heart"></i></button>
+                                    {% else %}
+                                    <button type="submit" name="recipepost_id" value="{{post.slug}}" class="btn-like">
+                                        <i class="far fa-heart"></i></button>
+                                    {% endif %}
+                                </form>
+                                {% else %}
+                                <span class="text-secondary"><i class="far fa-heart"></i></span>
+                                {% endif %}
+                                <!-- The number of likes goes before the closing strong tag -->
+                                <span class="text-secondary">{{ post.number_of_likes }} </span>
+                            </strong>
+                        </div>
+                        <div class="col-1">
+                            {% with comments.count as total_comments %}
+                            <strong class="text-secondary"><i class="far fa-comments"></i>
+                                <!-- Our total comments variable goes before the closing strong tag -->
+                                {{ total_comments }}</strong>
+                            {% endwith %}
+                        </div>
+                    </div>
                 </div>
-                <!-- Our for loop ends here -->
-                {% endfor %}
             </div>
         </div>
-        <div class="col-md-4 card mb-4  mt-3 ">
-            <div class="card-body">
-                <!-- For the comments submit that user is authenticated-->
-                {% if commented %}
-                <div class="alert alert-success" role="alert">
-                    Your comment is waiting to be approved!
+        <div class="row">
+            <div class="col">
+                <hr>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 card mb-4  mt-3 ">
+                <h3>Comments:</h3>
+                <div class="card-body">
+                    <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
+                    {% for comment in comments %}
+                    <div class="comments" style="padding: 10px;">
+                        <p class="font-weight-bold">
+                            <!-- The users name goes here for who's adding the comment -->
+                            {{ comment.name }}
+                            <span class=" text-muted font-weight-normal">
+                                <!-- The written comment goes here -->
+                                {{ comment.created_on }}
+                            </span> wrote:
+                        </p>
+                        <!-- The body of the comment goes before the | -->
+                        {{ comment.body | linebreaks }}
+                    </div>
+                    <!-- Our for loop ends here -->
+                    {% endfor %}
                 </div>
-                {% else %}
-                {% if user.is_authenticated %}
+            </div>
+            <div class="col-md-4 card mb-4  mt-3 ">
+                <div class="card-body">
+                    <!-- For the comments submit that user is authenticated-->
+                    {% if commented %}
+                    <div class="alert alert-success" role="alert">
+                        Your comment is waiting to be approved!
+                    </div>
+                    {% else %}
+                    {% if user.is_authenticated %}
 
-                <h3>Leave some feedback:</h3>
-                <p>Posting as: {{ user.username }}</p>
-                <form method="post" style="margin-top: 1.3em;">
-                    {{ comment_form | crispy }}
-                    {% csrf_token %}
-                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
-                </form>
-                {% endif %}
-                {% endif %}
+                    <h3>Leave some feedback:</h3>
+                    <p>Posting as: {{ user.username }}</p>
+                    <form method="post" style="margin-top: 1.3em;">
+                        {{ comment_form | crispy }}
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                    </form>
+                    {% endif %}
+                    {% endif %}
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-{% endblock content %}
+    {% endblock content %}
