@@ -98,7 +98,7 @@ class CreateRecipe(CreateView):
         return super().form_valid(form)
 
 
-class UpdateRecipe(LoginRequiredMixin, UpdateView):
+class UpdateRecipe(UpdateView):
     """edit the items for the user"""
     model = Post
     form_class = CreateRecipe
