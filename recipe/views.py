@@ -112,6 +112,10 @@ class UpdateRecipe(UpdateView):
         "content",
     ]
 
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
 
 class DeleteRecipe(LoginRequiredMixin, DeleteView):
     """delete the post for the user here"""
