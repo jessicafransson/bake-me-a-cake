@@ -7,7 +7,7 @@ urlpatterns = [
     path('', views.PostList.as_view(), name='home'),
     path('like/<slug:slug>', views.PostLike.as_view(), name='recipe_like'),
     path('create/', views.CreateRecipe.as_view(), name='create_recipe'),
-    path('<slug:slug>/edit_recipe', views.UpdateRecipe.as_view(), name='update_recipe'),  # noqa
+    path('update_recipe/<int:pk>', views.UpdateRecipe.as_view(), name='update_recipe'),  # noqa
     path('delete_recipe/<int:recipe_id>', views.DeleteRecipe.as_view, name='delete_recipe'),  # noqa
     path('<slug:slug>/', views.PostDetail.as_view(), name='post_detail'),
 ]
