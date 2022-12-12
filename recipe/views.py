@@ -2,6 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.http import HttpResponseRedirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.views import generic, View
@@ -87,7 +88,9 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
 
 
+@login_required
 class CreateRecipe(CreateView):
+    """User create recipes when logged in"""
     model = Post
     form_class = CreateRecipe
     template_name = 'create_recipe.html'
@@ -100,6 +103,7 @@ class CreateRecipe(CreateView):
     success_message = 'Recipe added succesfully, await approval!'
 
 
+@login_required
 class UpdateRecipe(UpdateView):
     """edit the items for the user"""
     model = Post
@@ -115,8 +119,10 @@ class UpdateRecipe(UpdateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super().form_valid(form)
+    success_message = 'Recipe updated succesfully, await approval!'
 
 
+@login_required
 class DeleteRecipe(LoginRequiredMixin, DeleteView):
     """delete the post for the user here"""
     model = Post
