@@ -15,15 +15,11 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-10 offset-1">
-        <form class="signup" id="create_recipe_form" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button class="btn btn-secondary right mb-2" type="submit" value="Save">Save changes</button>
-        </form>
-    </div>
-</div>
+<form method="post"> 
+    {% csrf_token %} 
+    {{ form.as_p }} 
+    <input type="submit" value="Save">
+</form>
 
 <!-- If user isnt authenticated to make changes -->
 

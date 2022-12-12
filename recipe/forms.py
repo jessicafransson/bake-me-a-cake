@@ -18,6 +18,4 @@ class CreateRecipe(forms.ModelForm):
         # title = forms.CharField()
         # content = forms.CharField()
         model = Post
-        fields = (
-            'title', 'content',
-        )
+        fields = 'title', 'description', 'content',

@@ -103,9 +103,14 @@ class CreateRecipe(CreateView):
 class UpdateRecipe(UpdateView):
     """edit the items for the user"""
     model = Post
-    form_class = CreateRecipe
+    """form_class = CreateRecipe"""
     template_name = 'update_recipe.html'
     success_url = reverse_lazy('home')
+    fields = [
+        "title",
+        "description",
+        "content",
+    ]
 
 
 class DeleteRecipe(LoginRequiredMixin, DeleteView):
