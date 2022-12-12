@@ -97,12 +97,15 @@ class CreateRecipe(CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+    success_message = 'Recipe added succesfully, await approval!'
+
 
 class UpdateRecipe(UpdateView):
     """edit the items for the user"""
     model = Post
     form_class = CreateRecipe
     template_name = 'update_recipe.html'
+    success_url = reverse_lazy('home')
 
 
 class DeleteRecipe(LoginRequiredMixin, DeleteView):
