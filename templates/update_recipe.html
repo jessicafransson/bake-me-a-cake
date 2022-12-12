@@ -17,7 +17,7 @@
 {% if user.is_authenticated %}
 <form method="post"> 
     {% csrf_token %} 
-    {{ form.as_p | safe }}
+    {{ form.as_p | striptags }}
     <input type="submit" value="save" type="submit">
 </form>
 {% endif %}
