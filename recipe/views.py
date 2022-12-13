@@ -112,6 +112,7 @@ class UpdateRecipe(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
         "title",
         "description",
         "content",
+        "featured_image",
     ]
 
     def form_valid(self, form):
