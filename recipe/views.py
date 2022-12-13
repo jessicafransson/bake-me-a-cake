@@ -88,8 +88,7 @@ class PostLike(View):
         return HttpResponseRedirect(reverse('recipe_detail', args=[slug]))
 
 
-@login_required
-class CreateRecipe(CreateView):
+class CreateRecipe(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     """User create recipes when logged in"""
     model = Post
     form_class = CreateRecipe
@@ -103,8 +102,7 @@ class CreateRecipe(CreateView):
     success_message = 'Recipe added succesfully, await approval!'
 
 
-@login_required
-class UpdateRecipe(UpdateView):
+class UpdateRecipe(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     """edit the items for the user"""
     model = Post
     """form_class = CreateRecipe"""
@@ -122,8 +120,7 @@ class UpdateRecipe(UpdateView):
     success_message = 'Recipe updated succesfully, await approval!'
 
 
-@login_required
-class DeleteRecipe(LoginRequiredMixin, DeleteView):
+class DeleteRecipe(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     """delete the post for the user here"""
     model = Post
     form_class = DeleteView
