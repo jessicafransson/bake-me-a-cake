@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-<!-- Here's to deleting post with options-->
+<!-- Check to see if the logged in user is deleting their own posts -->
 {% if user.is_authenticated and user.id == post.author.id %}
 <main class="container">
 
@@ -11,14 +11,16 @@
 
 			<form method="POST">
                 {% csrf_token %}
-                
+                <!-- This is the button for actually deleting the recipe-->
                 <p>Are you sure you want to delete this recipe "{{object}}"??</p>
-
+				<a class='btn' href="{% url 'home' %}">No, don't delete!</a>
 				<input type="submit" value="Confirm">
 			</form>
 
 		</div>
 	</div>
+
+<!-- If the user is trying to delete a recipe that isn't theirs-->
 
 </main>
 {% endif %}

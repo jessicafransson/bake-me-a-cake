@@ -4,7 +4,7 @@
 
 {% load cloudinary %}
 
-<!-- Check to se if the logged in user is the creater of the recipe trying to edit -->
+<!-- Check to se if the logged in user is the authenticated of editing this recipe -->
 {% if user.is_authenticated and user.id == post.author.id %}
 <div class="container">
     <div class="row">
@@ -26,5 +26,5 @@
 </div>
 
 {% endif %}
-<!-- If user isnt authenticated to make changes-->
+<!-- If the user is trying to update a recipe that isn't theirs -->
 {% endblock %}
