@@ -23,5 +23,16 @@
 <!-- If the user is trying to delete a recipe that isn't theirs-->
 
 </main>
+{% else %}
+
+    <div class="container">
+      <div class="row justify-content-md-center">
+          <div class="col-md-6 mt-4">
+              <h2>Whoops!</h2>
+              <p>This isn't your recipe to delete, please try again!</p>
+          </div>
+      </div>
+    </div>
+
 {% endif %}
 {% endblock content %}

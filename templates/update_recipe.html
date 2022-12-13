@@ -25,6 +25,17 @@
     </div>
 </div>
 
-{% endif %}
+
 <!-- If the user is trying to update a recipe that isn't theirs -->
+{% else %}
+
+    <div class="container">
+      <div class="row justify-content-md-center">
+          <div class="col-md-6 mt-4">
+              <h2>Whoops!</h2>
+              <p>This isn't your recipe to edit, try again!</p>
+          </div>
+      </div>
+    </div>
+{% endif %}
 {% endblock %}
