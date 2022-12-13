@@ -1,27 +1,31 @@
 {% extends "base.html" %}
-{% load static %}
+
 {% block content %}
 
-<!-- Check if the user is authenticated to edit the recipe-->
-{% if user.is_authenticated and user.id == recipe.author.id %}
+{% load cloudinary %}
 
-<form method="POST">
-    <h3 class="display-2 text-center mt-2">Edit your recipe</h3>
-    {% csrf_token %}
-    {% for field in form %}
-        {{ field | safe }}
-    {% endfor %}
-    <button class="btn btn-secondary right mb-2" type="submit" value="Save">Save</button>
-</form>
-</main>
+<!-- Check to se if the logged in user is the creater of the recipe trying to edit -->
 
-{% elif user.is_authenticated %}
+<div class="container">
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h3 class="display-2 text-center mt-2">Edit Recipe</h3>
+            <hr>
+        </div>
+    </div>
+</div>
+{% if user.is_authenticated %}
 
-    {% include "forbidden_access.html" %}
-
-{% else %}
-
-    {% include "not_logged_in_error.html" %}
+<div class="row">
+    <div class="col-10 offset-1">
+        <form class="signup" id="create_recipe_form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p | safe }}
+            <button class="btn btn-secondary right mb-2" type="submit" value="Save">Save changes</button>
+        </form>
+    </div>
+</div>
 
 {% endif %}
+<!-- If user isnt authenticated to make changes-->
 {% endblock %}
