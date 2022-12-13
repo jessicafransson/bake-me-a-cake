@@ -33,6 +33,7 @@
                                 {{ post.number_of_likes }}</p>
                                 <p> Post Id: {{ post.id }} </p>
                                 <form action="{% url 'update_recipe' post.id %}" method="get"><button>Update Recipe</button></form>
+                                <form action="{% url 'delete_recipe' post.id %}" method="get"><button>Delete Recipe</button></form>
                             {% if user.is_authenticated %}
                             {% endif %}
                         </div>

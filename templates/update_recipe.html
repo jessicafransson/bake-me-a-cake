@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-
+<main class="container text-center g-5 mt-5">
 <form method="POST">
     <h3>Edit your recipe</h3>
     {% csrf_token %}
@@ -11,4 +11,5 @@
     {% endfor %}
     <button style='margin-top:10px;' type="submit">Send for approval</button>
 </form>
+</main>
 {% endblock %}

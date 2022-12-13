@@ -125,6 +125,7 @@ class DeleteRecipe(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Post
     form_class = DeleteView
     template_name = 'delete_recipe.html'
+    success_url = reverse_lazy('home')
 
     def delete_post(request, item_id):
         form = get_object_or_404(Item, id=item_id)
