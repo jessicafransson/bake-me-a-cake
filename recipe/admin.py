@@ -6,7 +6,7 @@ from django_summernote.admin import SummernoteModelAdmin
 @admin.register(Post)
 class PostAdmin(SummernoteModelAdmin):
     """features for the admin recipe model """
-    list_display = ('title', 'slug', 'status', 'created_on')
+    list_display = ('title', 'slug', 'status', 'created_on', 'featured_image')
     search_fields = ['title', 'content', 'description', 'ingredients']
     prepopulated_fields = {'slug': ('author', 'title')}
     list_filter = ('status', 'created_on', 'author')
