@@ -5,7 +5,7 @@
 {% load cloudinary %}
 
 <!-- Check to se if the logged in user is the creater of the recipe trying to edit -->
-
+{% if user.is_authenticated and user.id == post.author.id %}
 <div class="container">
     <div class="row">
         <div class="col-8 offset-2">
@@ -14,7 +14,6 @@
         </div>
     </div>
 </div>
-{% if user.is_authenticated %}
 
 <div class="row">
     <div class="col-10 offset-1">

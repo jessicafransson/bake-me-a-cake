@@ -2,9 +2,8 @@
 {% load static %}
 {% block content %}
 
-<!-- Here's to deleting post with options
-{% if page == 'delete_recipe' %}
-{% endif %} -->
+<!-- Here's to deleting post with options-->
+{% if user.is_authenticated and user.id == post.author.id %}
 <main class="container">
 
 	<div class="row justify-content-center g-0">
@@ -22,5 +21,5 @@
 	</div>
 
 </main>
-
+{% endif %}
 {% endblock content %}
