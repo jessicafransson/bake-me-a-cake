@@ -29,14 +29,6 @@ body {
     background-color: #F9FAFC;
 }
 
-.card {
-    border-style: hidden;
-}
-
-.card-body {
-    border-style: hidden;
-}
-
 .bs-card-border-color {
     border-color: #fff;
 }
