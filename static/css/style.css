@@ -30,8 +30,7 @@ body {
 }
 
 .card {
-    border: none;
-    background-color: transparent;
+    border-style: hidden;
 }
 
 .image-container {
