@@ -32,8 +32,8 @@
                             <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
                                 {{ post.number_of_likes }}</p>
                                 <p> Post Id: {{ post.id }} </p>
-                                <form action="{% url 'update_recipe' post.id %}" method="get"><button>Edit Recipe</button></form>
-                                <form action="{% url 'delete_recipe' post.id %}" method="get"><button>Delete Recipe</button></form>
+                                <form action="{% url 'update_recipe' post.id %}" method="get"><button class="btn btn-secondary right mb-2 btn-success">Edit Recipe</button></form>
+                                <form action="{% url 'delete_recipe' post.id %}" method="get"><button class="btn btn-secondary right mb-2 btn-danger">Delete Recipe</button></form>
                             {% if user.is_authenticated %}
                             {% endif %}
                         </div>
