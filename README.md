@@ -35,3 +35,8 @@ https://icons8.com/icons/set/cake
 ```
 
 Default image url is from pixabay 
+
+```
+link to my issues in github and moved to done besides 1, verification email setup
+https://github.com/users/jessicafransson/projects/6/views/1
+```

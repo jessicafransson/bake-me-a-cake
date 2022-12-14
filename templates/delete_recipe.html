@@ -11,7 +11,7 @@
 
 			<form method="POST">
                 {% csrf_token %}
-                <!-- This is the button for actually deleting the recipe-->
+                <!-- This is the button for actually deleting the recipe, or for user to click back to main page-->
                 <p>Are you sure you want to delete this recipe "{{object}}"??</p>
 				<a class='btn' href="{% url 'home' %}">No, don't delete!</a>
 				<input type="submit" value="Confirm">
@@ -21,15 +21,14 @@
 	</div>
 
 <!-- If the user is trying to delete a recipe that isn't theirs-->
-
 </main>
 {% else %}
 
     <div class="container">
       <div class="row justify-content-md-center">
           <div class="col-md-6 mt-4">
-              <h2>Whoops!</h2>
-              <p>This isn't your recipe to delete, please try again!</p>
+              <h2>Sorry, you're not authorised to be here!</h2>
+              <p>This isn't your recipe to delete, please check for your own recipe!</p>
           </div>
       </div>
     </div>
