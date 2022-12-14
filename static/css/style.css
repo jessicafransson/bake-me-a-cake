@@ -33,6 +33,14 @@ body {
     border-style: hidden;
 }
 
+.card-body {
+    border-style: hidden;
+}
+
+.bs-card-border-color {
+    border-color: #fff;
+}
+
 .image-container {
     position: relative;
 }
