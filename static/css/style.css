@@ -1,10 +1,8 @@
 
 /*------------------------------ Links and titles */
 a {
-    text-decoration: none;
     color: #000000;
     cursor: pointer;
-    text-decoration: none;
 }
 
 a:hover {
@@ -25,7 +23,7 @@ a:hover {
     margin-left: 20px;
 }
 
-a.post-link {
+.post-link {
     text-decoration: none;
     color: #647689;
 }
