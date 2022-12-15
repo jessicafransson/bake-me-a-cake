@@ -35,6 +35,8 @@
                     <!-- Use the | safe filter inside the template tags -->
                     <p class="card-text">
                         {{ post.content | safe }}
+                        <form action="{% url 'update_recipe' post.id %}" method="get"><button class="btn btn-secondary right mb-2 btn-success">Edit Recipe</button></form>
+                        <form action="{% url 'delete_recipe' post.id %}" method="get"><button class="btn btn-secondary right mb-2 btn-danger">Delete Recipe</button></form>
                     </p>
                     <div class="row">
 
