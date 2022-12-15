@@ -1,3 +1,8 @@
+/*------------------------------ Body */
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: aliceblue;
+}
 
 /*------------------------------ Links and titles */
 a {
