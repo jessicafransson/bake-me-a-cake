@@ -8,7 +8,7 @@
         <h3>Add your own recipes</h3>
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="button" class="btn btn-outline-info">Add to your collection</button>
+        <button class="btn btn-secondary right mb-2 btn-success" type="submit" value="Save">Add to your collection</button>
 </form>
     {% if messages %}
     {% for message in messages %}
