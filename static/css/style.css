@@ -44,6 +44,12 @@ a:hover {
     color: black;
 }
 
+/*------------------------------ images */
+
+.image {
+  width: auto;
+  height: fit-content;
+}
 
 /*------------------------------ Social/contact links */
 .contact-section {

@@ -34,7 +34,7 @@ länk till png cupcake
 https://icons8.com/icons/set/cake
 ```
 
-Default image url is from pixabay 
+Images, both for recipe and placeholder url is from pixabay 
 
 ```
 link to my issues in github and moved to done besides 1, verification email setup
