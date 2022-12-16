@@ -1,22 +1,25 @@
 /*------------------------------ Body */
 body, html {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  background-color: aliceblue;
   height: 100%;
 }
 
 /*------------------------------ Hero image */
 
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 
-  0.5)), url("/images/heroimage.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 
+  0.1)), url("../images/heroimage.png");
 
-  height: 50%;
-
+  height: 361px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+}
+
+.card-body {
+  padding-left: 0;
+  padding-right: 0;
 }
 
 .hero-text {
@@ -25,7 +28,7 @@ body, html {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: black;
 }
 
 /*------------------------------ Links and titles */
