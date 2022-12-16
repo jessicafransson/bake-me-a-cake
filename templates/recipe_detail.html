@@ -18,12 +18,11 @@
             <div class="d-none d-md-block col-md-6 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/recipe/default.jpg" width="100%" alt="placeholder image chosen if else">
+                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/recipe/default.jpg" width="300" alt="placeholder image chosen if else">
                 {% else %}
                 <img src=" {{ post.featured_image.url }}" width="100%" alt="the featured image of the post">
                 {% endif %}
             </div>
-        </div>
     </div>
     </div>
 
@@ -37,11 +36,9 @@
                         {{ post.content | safe }}
                         <form action="{% url 'update_recipe' post.id %}" method="get"><button class="btn btn-secondary right mb-2 btn-success">Edit Recipe</button></form>
                         <form action="{% url 'delete_recipe' post.id %}" method="get"><button class="btn btn-secondary right mb-2 btn-danger">Delete Recipe</button></form>
-                    </p>
                     <div class="row">
 
                         <div class="col-1">
-                            <strong>
                                 {% if user.is_authenticated %}
                                 <form class="d-inline" action="{% url 'recipe_like' post.slug %}" method="POST">
                                     {% csrf_token %}
@@ -58,7 +55,6 @@
                                 {% endif %}
                                 <!-- The number of likes goes before the closing strong tag -->
                                 <span class="text-secondary">{{ post.number_of_likes }} </span>
-                            </strong>
                         </div>
                         <div class="col-1">
                             {% with comments.count as total_comments %}
