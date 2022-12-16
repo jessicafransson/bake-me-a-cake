@@ -40,3 +40,7 @@ Images, both for recipe and placeholder url is from pixabay
 link to my issues in github and moved to done besides 1, verification email setup
 https://github.com/users/jessicafransson/projects/6/views/1
 ```
+
+## testing
+
+https://pep8ci.herokuapp.com/ all python code has been passed, without errors. 

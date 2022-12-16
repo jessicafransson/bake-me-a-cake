@@ -16,7 +16,7 @@
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
                                 <img class="card-img-top"
-                                    src="https://cdn.pixabay.com/photo/2021/01/01/21/56/cooking-5880136_960_720.jpg">
+                                    src="https://cdn.pixabay.com/photo/2021/01/01/21/56/cooking-5880136_960_720.jpg" alt="placeholder image instead of user added">
                                 {% else %}
                                 <img class="card-img-top" src=" {{ post.featured_image.url }}">
                                 {% endif %}
