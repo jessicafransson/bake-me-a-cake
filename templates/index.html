@@ -3,7 +3,7 @@
 {% block content %}
 
 
-<main class="container text-center g-5 mt-5">
+<section class="container text-center g-5 mt-5">
     <div class="row">
 
         <!-- Recipe posts column -->
@@ -19,7 +19,7 @@
                                     src="https://cdn.pixabay.com/photo/2021/01/01/21/56/cooking-5880136_960_720.jpg"
                                     alt="placeholder image">
                                 {% else %}
-                                <img class="card-img-top" src=" {{ post.featured_image.url }}">
+                                <img class="card-img-top" src=" {{ post.featured_image.url }}" alt=" {{ post.description }}">
                                 {% endif %}
                                 <div class="image-flash">
                                     <p class="author">Author: {{ post.author }}</p>
@@ -30,7 +30,6 @@
                                 <h2 class="card-title">{{ post.title }}</h2>
                                 <p class="card-text">{{ post.excerpt }}</p>
                             </a>
-                            <hr />
                             <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
                                 {{ post.number_of_likes }}</p>
                             <p> Post Id: {{ post.id }} </p>
@@ -61,6 +60,5 @@
         </ul>
     </nav>
     {% endif %}
-    </div>
-</main
+</section>
 {% endblock %}
