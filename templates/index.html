@@ -16,7 +16,8 @@
                             <div class="image-container">
                                 {% if "placeholder" in post.featured_image.url %}
                                 <img class="card-img-top"
-                                    src="https://cdn.pixabay.com/photo/2021/01/01/21/56/cooking-5880136_960_720.jpg" alt="placeholder image instead of user added">
+                                    src="https://cdn.pixabay.com/photo/2021/01/01/21/56/cooking-5880136_960_720.jpg"
+                                    alt="placeholder image">
                                 {% else %}
                                 <img class="card-img-top" src=" {{ post.featured_image.url }}">
                                 {% endif %}
@@ -24,14 +25,15 @@
                                     <p class="author">Author: {{ post.author }}</p>
                                 </div>
                             </div>
-                            <a href="{% url 'post_detail' post.slug %}" class="post-link link-dark text-decoration-none">
+                            <a href="{% url 'post_detail' post.slug %}"
+                                class="post-link link-dark text-decoration-none">
                                 <h2 class="card-title">{{ post.title }}</h2>
                                 <p class="card-text">{{ post.excerpt }}</p>
                             </a>
                             <hr />
                             <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
                                 {{ post.number_of_likes }}</p>
-                                <p> Post Id: {{ post.id }} </p>
+                            <p> Post Id: {{ post.id }} </p>
                             {% if user.is_authenticated %}
                             {% endif %}
                         </div>
@@ -59,5 +61,6 @@
         </ul>
     </nav>
     {% endif %}
-</div>
-{%endblock%}
+    </div>
+</main
+{% endblock %}
