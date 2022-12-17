@@ -31,7 +31,7 @@
                 <img src="https://codeinstitute.s3.amazonaws.com/fullstack/recipe/default.jpg"
                     alt="placeholder image chosen if else">
                 {% else %}
-                <img src=" {{ post.featured_image.url }}" alt="the featured image of the post">
+                <img src=" {{ post.featured_image.url }}" alt="{{ post.description }}">
                 {% endif %}
             </div>
         </div>
