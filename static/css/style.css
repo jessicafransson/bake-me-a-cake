@@ -110,12 +110,17 @@ a:hover .card-title {
 
 .post-title {
     margin-top: 5%;
-    color: #93b9c1;
+    font-family: 'Palanquin Dark', sans-serif;
+    color: #333;
 }
 
 .pagination {
   color: #93b9c1;
   border-radius: 35px;
+}
+
+.icons {
+  font-size: 22px;
 }
 
 /*------------------------------ images */

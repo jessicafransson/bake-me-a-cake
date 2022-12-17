@@ -10,7 +10,6 @@
 <div class="hero-image">
     <div class="hero-text">
         <h1>Welcome to a world of awesome cakes!</h1>
-        <p> A place to inspire, and get inspired with good recipes.</p>
     </div>
 </div>
 
@@ -23,15 +22,47 @@
                 <!-- Recipe author goes before the | the post's created date goes after -->
                 <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
             </div>
+
+           
+
             <div class="d-none d-md-block col-md-12 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.featured_image.url %}
-                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/recipe/default.jpg" width="300" alt="placeholder image chosen if else">
+                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/recipe/default.jpg" width="300"
+                    alt="placeholder image chosen if else">
                 {% else %}
                 <img src=" {{ post.featured_image.url }}" width="100%" alt="the featured image of the post">
                 {% endif %}
             </div>
+        </div>
     </div>
+
+    <div class="row icons">
+        <div class="col-4">
+            {% if user.is_authenticated %}
+            <form class="d-inline" action="{% url 'recipe_like' post.slug %}" method="POST">
+                {% csrf_token %}
+                {% if liked %}
+                <button type="submit" name="recipepost_id" value="{{post.slug}}" class="btn-like">
+                    <i class="fas fa-heart"></i></button>
+                {% else %}
+                <button type="submit" name="recipepost_id" value="{{post.slug}}" class="btn-like">
+                    <i class="far fa-heart"></i></button>
+                {% endif %}
+            </form>
+            {% else %}
+            <span class="text-secondary"><i class="far fa-heart"></i></span>
+            {% endif %}
+            <!-- The number of likes goes before the closing strong tag -->
+            <span class="text-secondary">{{ post.number_of_likes }} </span>
+        </div>
+        <div class="col-3">
+            {% with comments.count as total_comments %}
+            <strong class="text-secondary"><i class="far fa-comments"></i>
+                <!-- Our total comments variable goes before the closing strong tag -->
+                {{ total_comments }}</strong>
+            {% endwith %}
+        </div>
     </div>
 
     <div class="container">
@@ -42,92 +73,71 @@
                     <!-- Use the | safe filter inside the template tags -->
                     <div class="row">
                         {{ post.content | safe }}
-                        <div class="col-2">
-                            <form action="{% url 'update_recipe' post.id %}" method="get"><button class="btn btn-secondary right mb-2 btn-success">Edit Recipe</button></form>
-                        </div>
-                        <div class="col-2">
-                            <form action="{% url 'delete_recipe' post.id %}" method="get"><button class="btn btn-secondary right mb-2 btn-danger">Delete Recipe</button></form>
-                        </div>
-                    </div>
-
-                        <div class="col-1">
-                                {% if user.is_authenticated %}
-                                <form class="d-inline" action="{% url 'recipe_like' post.slug %}" method="POST">
-                                    {% csrf_token %}
-                                    {% if liked %}
-                                    <button type="submit" name="recipepost_id" value="{{post.slug}}" class="btn-like">
-                                        <i class="fas fa-heart"></i></button>
-                                    {% else %}
-                                    <button type="submit" name="recipepost_id" value="{{post.slug}}" class="btn-like">
-                                        <i class="far fa-heart"></i></button>
-                                    {% endif %}
-                                </form>
-                                {% else %}
-                                <span class="text-secondary"><i class="far fa-heart"></i></span>
-                                {% endif %}
-                                <!-- The number of likes goes before the closing strong tag -->
-                                <span class="text-secondary">{{ post.number_of_likes }} </span>
-                        </div>
-                        <div class="col-1">
-                            {% with comments.count as total_comments %}
-                            <strong class="text-secondary"><i class="far fa-comments"></i>
-                                <!-- Our total comments variable goes before the closing strong tag -->
-                                {{ total_comments }}</strong>
-                            {% endwith %}
+                        <div class="row mt-5">
+                            <div class="col-md-2">
+                                <form action="{% url 'update_recipe' post.id %}" method="get"><button
+                                        class="btn btn-secondary right mb-2 btn-success">Edit Recipe</button></form>
+                            </div>
+                            <div class="col-md-3">
+                                <form action="{% url 'delete_recipe' post.id %}" method="get"><button
+                                        class="btn btn-secondary right mb-2 btn-danger">Delete Recipe</button></form>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col">
-                <hr>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12 card mb-4  mt-3 border-0">
-                <h3>Comments:</h3>
-                <div class="card-body border-0">
-                    <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
-                    {% for comment in comments %}
-                    <div class="comments" style="padding: 10px;">
-                        <p class="font-weight-bold">
-                            <!-- The users name goes here for who's adding the comment -->
-                            {{ comment.name }}
-                            <span class=" text-muted font-weight-normal">
-                                <!-- The written comment goes here -->
-                                {{ comment.created_on }}
-                            </span> wrote:
-                        </p>
-                        <!-- The body of the comment goes before the | -->
-                        {{ comment.body | linebreaks }}
-                    </div>
-                    <!-- Our for loop ends here -->
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="col-md-12 card mb-4  mt-3 border-0 ">
-                <div class="card-body">
-                    <!-- For the comments submit that user is authenticated-->
-                    {% if commented %}
-                    <div class="alert alert-success" role="alert">
-                        Your comment is waiting to be approved!
-                    </div>
-                    {% else %}
-                    {% if user.is_authenticated %}
-
-                    <h3>Leave some feedback:</h3>
-                    <p>Posting as: {{ user.username }}</p>
-                    <form method="post" style="margin-top: 1.3em;">
-                        {{ comment_form | crispy }}
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-signup btn-lg btn-success">Submit</button>
-                    </form>
-                    {% endif %}
-                    {% endif %}
+                    
                 </div>
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col">
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 card mb-4  mt-3 border-0">
+            <h3>Comments:</h3>
+            <div class="card-body border-0">
+                <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
+                {% for comment in comments %}
+                <div class="comments" style="padding: 10px;">
+                    <p class="font-weight-bold">
+                        <!-- The users name goes here for who's adding the comment -->
+                        {{ comment.name }}
+                        <span class=" text-muted font-weight-normal">
+                            <!-- The written comment goes here -->
+                            {{ comment.created_on }}
+                        </span> wrote:
+                    </p>
+                    <!-- The body of the comment goes before the | -->
+                    {{ comment.body | linebreaks }}
+                </div>
+                <!-- Our for loop ends here -->
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-12 card mb-4  mt-3 border-0 ">
+            <div class="card-body">
+                <!-- For the comments submit that user is authenticated-->
+                {% if commented %}
+                <div class="alert alert-success" role="alert">
+                    Your comment is waiting to be approved!
+                </div>
+                {% else %}
+                {% if user.is_authenticated %}
+
+                <h3>Leave some feedback:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form method="post" style="margin-top: 1.3em;">
+                    {{ comment_form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-signup btn-lg btn-success mt-4">Submit</button>
+                </form>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    </div>
 </section>
-    {% endblock content %}
+{% endblock content %}
