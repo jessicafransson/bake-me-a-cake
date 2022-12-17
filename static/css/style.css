@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Overlock:wght@700&display=swap');
+
 /*------------------------------ Body */
 html, body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -14,11 +16,15 @@ body {
   max-width: 960px;
 }
 
+.navbar-brand {
+  color: white;
+  font-weight: 500;
+}
 /*------------------------------ Hero image */
 
 .hero-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 
-  0.1)), url("../images/heroimage1.png");
+  0.1)), url("../images/headerimage.png");
 
   height: 361px;
   width: 100%;
@@ -37,15 +43,23 @@ body {
   padding-right: 0;
 } */
 
-.hero-text {
+.hero-text h1{
   text-align: center;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: black;
+  color: white;
   margin-top: 0;
   margin-bottom: 0.5em;
+  font-family: 'Palanquin Dark', sans-serif;
+  font-size: 3rem;
+}
+
+@media (max-width: 376px) {
+  .hero-text h1 {
+    font-size: 2rem;
+  }
 }
 
 /*------------------------------ Links and titles */
@@ -55,13 +69,25 @@ a {
 }
 
 a:hover {
-    color: #b3708e;
+    color: #93b9c1;
 }
 
 .author {
-    color: #b3708e;
+    color: #93b9c1;
     margin: 4px;
     text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.card-title {
+  font-family: 'Palanquin Dark', sans-serif;
+  color: #333;
+}
+
+a:hover .card-title {
+  text-decoration: underline;
+  transition: .5s;
 }
 
 /*------------------------------ Button for likes */
@@ -79,16 +105,16 @@ a:hover {
 
 .post-link:hover,
 .page-link {
-    color: #b3708e;
+    color: #93b9c1;
 }
 
 .post-title {
     margin-top: 5%;
-    color: #b3708e;
+    color: #93b9c1;
 }
 
 .pagination {
-  color: #b3708e;
+  color: #93b9c1;
   border-radius: 35px;
 }
 
@@ -99,9 +125,17 @@ a:hover {
   height: fit-content;
 }
 
+.image-container {
+  margin-bottom: 3%;
+}
+
   /*------------------------------ Footer styling */
-  .footer {
-    padding: 3rem 0;
-    letter-spacing: 5px;
+  footer {
+    padding: 60px;
+    color: white;
+    margin-top: 20px;
   }
-  
+
+  .social {
+    font-size: 30px;
+  }

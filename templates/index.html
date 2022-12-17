@@ -6,7 +6,7 @@
 <div class="hero-image">
     <div class="hero-text">
         <h1>Welcome to a world of awesome cakes!</h1>
-        <p> A place to inspire, and get inspired with good recipes.</p>
+        
     </div>
 </div>
 
@@ -29,9 +29,9 @@
                         {% else %}
                         <img class="card-img-top" src=" {{ post.featured_image.url }}" alt=" {{ post.description }}">
                         {% endif %}
-                        <div class="image-flash">
-                            <p class="author">Author: {{ post.author }}</p>
-                        </div>
+                    </div>
+                    <div class="image-flash">
+                        <p class="author">Author: {{ post.author }}</p>
                     </div>
                     <a href="{% url 'post_detail' post.slug %}" class="post-link link-dark text-decoration-none">
                         <h2 class="card-title">{{ post.title }}</h2>
@@ -39,7 +39,7 @@
                     </a>
                     <p class="card-text text-muted h6">{{ post.created_on}} <i class="far fa-heart"></i>
                         {{ post.number_of_likes }}</p>
-                    <p> Post Id: {{ post.id }} </p>
+                    <!--<p> Post Id: {{ post.id }} </p>-->
                     {% if user.is_authenticated %}
                     {% endif %}
                 </div>
