@@ -2,18 +2,21 @@
 {% load static %}
 {% block content %}
 
+<!-- hero image section-->
+<!-- <link rel="stylesheet" href="style.css"> -->
+<div class="hero-image">
+    <div class="hero-text">
+        <h1>Welcome to a world of awesome cakes!</h1>
+        <p> A place to inspire, and get inspired with good recipes.</p>
+    </div>
+</div>
+
 <section class="container text-center g-5 mt-5">
     <div class="row">
 
         <!-- Recipe posts column -->
         <div class="col-12 mt-3 text-start">
-            <!-- hero image section-->
-            <div class="hero-image">
-                <div class="hero-text">
-                    <h1>Welcome to a world of awesome cakes!</h1>
-                    <p> A place to inspire, and get inspired with good recipes.</p>
-                </div>
-            </div>
+
         </div>
         {% for post in post_list %}
         <div class="col-md-6 text-start">

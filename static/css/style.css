@@ -1,26 +1,36 @@
 /*------------------------------ Body */
-body, html {
+html, body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   height: 100%;
+  margin: 0;
+}
+
+body {
+  position: relative;
 }
 
 /*------------------------------ Hero image */
 
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 
   0.1)), url("../images/heroimage.png");
 
   height: 361px;
+  width: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 
-.card-body {
+/* .card-body {
   padding-left: 0;
   padding-right: 0;
-}
+} */
 
 .hero-text {
   text-align: center;
@@ -29,6 +39,8 @@ body, html {
   left: 50%;
   transform: translate(-50%, -50%);
   color: black;
+  margin-top: 0;
+  margin-bottom: 0.5em;
 }
 
 /*------------------------------ Links and titles */
