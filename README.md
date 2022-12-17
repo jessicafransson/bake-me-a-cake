@@ -44,3 +44,6 @@ https://github.com/users/jessicafransson/projects/6/views/1
 ## testing
 
 https://pep8ci.herokuapp.com/ all python code has been passed, without errors. 
+
+Color and design inspiration from Swedish baking Queen Camilla Hamid
+https://mykitchenstories.se/

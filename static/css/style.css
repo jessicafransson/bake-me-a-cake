@@ -45,16 +45,16 @@ body {
 
 /*------------------------------ Links and titles */
 a {
-    color: #000000;
+    color: black;
     cursor: pointer;
 }
 
 a:hover {
-    color: darkgray;
+    color: #b3708e;
 }
 
 .author {
-    color: white;
+    color: #b3708e;
     margin: 4px;
     text-transform: uppercase;
 }
@@ -69,18 +69,23 @@ a:hover {
 
 .post-link {
     text-decoration: none;
-    color: #647689;
+    color: #040404;
 }
 
 .post-link:hover,
 .page-link {
-    color: lightgray;
+    color: #b3708e;
 }
 
 .post-title {
     margin-top: 20%;
     margin-left: 5%;
-    color: black;
+    color: #b3708e;
+}
+
+.pagination {
+  color: #b3708e;
+  border-radius: 35px;
 }
 
 /*------------------------------ images */
@@ -90,35 +95,9 @@ a:hover {
   height: fit-content;
 }
 
-/*------------------------------ Social/contact links */
-.contact-section {
-    padding-top: 0.1rem;
-  }
-  
-  .contact-section .social {
-    margin-top: 0.1rem;
-  }
-  
-  .contact-section .social a {
-    text-align: center;
-    height: 3rem;
-    width: 3rem;
-    background: rgba(41, 40, 40, 0.1);
-    border-radius: 100%;
-    line-height: 3rem;
-    color: rgba(2, 1, 1, 0.3);
-  }
-  
-  .contact-section .social a:hover {
-    color: #da8164;
-  }
-  
-  .contact-section .social a:active {
-    color: rgb(78, 78, 78);
-  }
-  
   /*------------------------------ Footer styling */
   .footer {
     padding: 3rem 0;
+    letter-spacing: 5px;
   }
   
