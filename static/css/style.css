@@ -38,11 +38,6 @@ body {
 
 }
 
-/* .card-body {
-  padding-left: 0;
-  padding-right: 0;
-} */
-
 .hero-text h1{
   text-align: center;
   position: absolute;
@@ -56,6 +51,7 @@ body {
   font-size: 3rem;
 }
 
+/*------------ for smaller device hero image */
 @media (max-width: 376px) {
   .hero-text h1 {
     font-size: 2rem;
@@ -90,7 +86,7 @@ a:hover .card-title {
   transition: .5s;
 }
 
-/*------------------------------ Button for likes */
+/*------------------------------ Button and likes */
 .btn-like {
     color: #ff0000;
     border: none;
