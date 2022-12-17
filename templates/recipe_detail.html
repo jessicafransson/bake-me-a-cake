@@ -6,16 +6,24 @@
 
 {% load crispy_forms_tags %}
 
+<!-- hero image section-->
+<div class="hero-image">
+    <div class="hero-text">
+        <h1>Welcome to a world of awesome cakes!</h1>
+        <p> A place to inspire, and get inspired with good recipes.</p>
+    </div>
+</div>
+
 <section class="container g-5">
     <div class="row justify-content-center mt-4 mb-5">
         <div class="row g-0">
-            <div class="col-md-6 masthead-text">
+            <div class="col-md-12 masthead-text">
                 <!-- Recipe title goes in these h1 tags -->
                 <h1 class="post-title">{{ post.title }}</h1>
                 <!-- Recipe author goes before the | the post's created date goes after -->
                 <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
             </div>
-            <div class="d-none d-md-block col-md-6 masthead-image">
+            <div class="d-none d-md-block col-md-12 masthead-image">
                 <!-- The featured image URL goes in the src attribute -->
                 {% if "placeholder" in post.featured_image.url %}
                 <img src="https://codeinstitute.s3.amazonaws.com/fullstack/recipe/default.jpg" width="300" alt="placeholder image chosen if else">
@@ -77,7 +85,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-8 card mb-4  mt-3 border-0">
+            <div class="col-md-12 card mb-4  mt-3 border-0">
                 <h3>Comments:</h3>
                 <div class="card-body border-0">
                     <!-- We want a for loop inside the empty control tags to iterate through each comment in comments -->
@@ -98,7 +106,7 @@
                     {% endfor %}
                 </div>
             </div>
-            <div class="col-md-4 card mb-4  mt-3 border-0 ">
+            <div class="col-md-12 card mb-4  mt-3 border-0 ">
                 <div class="card-body">
                     <!-- For the comments submit that user is authenticated-->
                     {% if commented %}

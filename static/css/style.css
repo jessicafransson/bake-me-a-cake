@@ -7,13 +7,18 @@ html, body {
 
 body {
   position: relative;
+  font-size: 16px;
+}
+
+.container {
+  max-width: 960px;
 }
 
 /*------------------------------ Hero image */
 
 .hero-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 
-  0.1)), url("../images/heroimage.png");
+  0.1)), url("../images/heroimage1.png");
 
   height: 361px;
   width: 100%;
@@ -78,8 +83,7 @@ a:hover {
 }
 
 .post-title {
-    margin-top: 20%;
-    margin-left: 5%;
+    margin-top: 5%;
     color: #b3708e;
 }
 
