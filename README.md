@@ -49,3 +49,7 @@ Color and design inspiration from Swedish baking Queen Camilla Hamid
 https://mykitchenstories.se/
 
 Images converted to AVIF after lighthouse errors on https://squoosh.app/ from png to avif
+
+### article how to fix image error lighthouse without success 
+
+https://stackoverflow.com/questions/65076805/image-elements-do-not-have-explicit-width-and-height
