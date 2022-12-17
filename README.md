@@ -47,3 +47,5 @@ https://pep8ci.herokuapp.com/ all python code has been passed, without errors.
 
 Color and design inspiration from Swedish baking Queen Camilla Hamid
 https://mykitchenstories.se/
+
+Images converted to AVIF after lighthouse errors on https://squoosh.app/ from png to avif

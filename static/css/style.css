@@ -24,7 +24,7 @@ body {
 
 .hero-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 
-  0.1)), url("../images/headerimage.png");
+  0.1)), url("../images/header_image.jpeg");
 
   height: 361px;
   width: 100%;
@@ -121,9 +121,9 @@ a:hover .card-title {
 
 /*------------------------------ images */
 
-.img {
-  width: auto;
-  height: fit-content;
+img {
+  max-width: 100%; /* or width: 100%; */
+  height: auto;
 }
 
 .image-container {
