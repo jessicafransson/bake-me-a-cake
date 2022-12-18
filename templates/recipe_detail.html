@@ -6,36 +6,25 @@
 
 {% load crispy_forms_tags %}
 
-<!-- hero image section-->
-<div class="hero-image">
-    <div class="hero-text">
-        <h1>Welcome to a world of awesome cakes!</h1>
-        <div id="hero-image" class="container-fluid callout-container"
-        style="background-image: url(https://res.cloudinary.com/dc06hazhc/image/upload/v1671358695/heroimage_sbzjqb.avif)">
-    </div>
-</div>
-
 <section class="container g-5">
     <div class="row justify-content-center mt-4 mb-5">
-        <div class="row g-0">
-            <div class="col-md-12 masthead-text">
-                <!-- Recipe title goes in these h1 tags -->
-                <h1 class="post-title">{{ post.title }}</h1>
-                <!-- Recipe author goes before the | the post's created date goes after -->
-                <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
-            </div>
+        <div class="col-md-12 masthead-text">
+            <!-- Recipe title goes in these h1 tags -->
+            <h1 class="post-title">{{ post.title }}</h1>
+            <!-- Recipe author goes before the | the post's created date goes after -->
+            <p class="post-subtitle">{{ post.author }} | {{ post.created_on }}</p>
+        </div>
 
-           
 
-            <div class="d-none d-md-block col-md-12 masthead-image">
-                <!-- The featured image URL goes in the src attribute -->
-                {% if "placeholder" in post.featured_image.url %}
-                <img src="https://codeinstitute.s3.amazonaws.com/fullstack/recipe/default.jpg"
-                    alt="placeholder image chosen if else">
-                {% else %}
-                <img src=" {{ post.featured_image.url }}" alt="{{ post.description }}">
-                {% endif %}
-            </div>
+
+        <div class="d-none d-md-block col-md-12 masthead-image">
+            <!-- The featured image URL goes in the src attribute -->
+            {% if "placeholder" in post.featured_image.url %}
+            <img src="https://codeinstitute.s3.amazonaws.com/fullstack/recipe/default.jpg"
+                alt="placeholder image chosen if else">
+            {% else %}
+            <img src=" {{ post.featured_image.url }}" alt="{{ post.description }}">
+            {% endif %}
         </div>
     </div>
 
@@ -74,7 +63,7 @@
                     <!-- The recipe content goes inside the card-text. -->
                     <!-- Use the | safe filter inside the template tags -->
                     <div class="row">
-                    <!-- Buttons for user to edit or delete their own recipes, or direct them to a not-authorized page -->
+                        <!-- Buttons for user to edit or delete their own recipes, or direct them to a not-authorized page -->
                         {{ post.content | safe }}
                         <div class="row mt-5">
                             <div class="col-md-2">
@@ -87,7 +76,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>

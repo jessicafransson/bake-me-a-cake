@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html class="min-vh-100" lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -24,13 +24,9 @@
     <script defer src="https://kit.fontawesome.com/7beb4c51dd.js" crossorigin="anonymous"></script>
 </head>
 
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column">
 
     <!--Navigation bar-->
-    <nav class="navbar fixed-top">
-        <div class="container-fluid">
-        </div>
-    </nav>
     <nav class="navbar navbar-light" style="background-color: #93b9c1">
         <div class="container-fluid">
             <a class="navbar-brand" href="{% url 'home' %}">Bake me a cake <img alt="image of a cupcake"
@@ -69,6 +65,7 @@
             </div>
         </div>
     </nav>
+
     <!-- Display messages and alerts on page-->
     <div class="container">
         <div class="row">
@@ -82,43 +79,50 @@
             </div>
         </div>
     </div>
-    <div id="hero-image" class="container-fluid callout-container"
-        style="background-image: url(https://res.cloudinary.com/dc06hazhc/image/upload/v1671366710/heroimage_w4waiv.avif)">
 
-        <main class="flex-shrink-0 main-bg">
-            <!-- Main recipe content goes here -->
-            {% block content %}
-            {% endblock content %}
-        </main>
-
-        <!-- Footer -->
-        <footer class="text-center" style="background-color: #93b9c1">
-            <div class="container px-4 px-lg-5">Copyright &copy; Jessica Fransson Code Institute Student 2022</div>
-
-            <!--Social media links  -->
-            <div class="social d-flex justify-content-center">
-                <a href="https://twitter.com/?lang=en" class="me-4 text-reset" target="_blank" rel="noopener"><i
-                        class="fab fa-twitter"></i></a>
-                <a href="https://en-gb.facebook.com/" class="me-4 text-reset" target="_blank" rel="noopener"><i
-                        class="fab fa-facebook-f"></i></a>
-                <a href="https://github.com/jessicafransson/bake-me-a-cake" class="me-4 text-reset" target="_blank"
-                    rel="noopener"><i class="fab fa-github"></i></a>
+    <!-- hero image section-->
+   
+        <div class="hero-image">
+            <div class="hero-text">
+                <h1>Welcome to a world of awesome cakes!</h1>
             </div>
-        </footer>
-        <!-- This will automatically close the alert-->
-        <script>
-            setTimeout(function () {
-                let messages = document.getElementById('msg');
-                let alert = new bootstrap.Alert(messages);
-                alert.close();
-            }, 2500);
-        </script>
-        <!--font awesome script-->
-        <script src="https://kit.fontawesome.com/af04db9847.js" crossorigin="anonymous"></script>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core JS-->
-        <script src="{% static 'js/scripts.js' %}"></script>
+        </div>
+    
+
+    <main class="flex-shrink-0 main-bg">
+        <!-- Main recipe content goes here -->
+        {% block content %}
+        {% endblock content %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center mb-4 mt-4" style="background-color: #93B9C1">
+        <div class="container px-2 px-lg-5 ">Copyright &copy; Jessica Fransson Code Institute Student 2022</div>
+
+        <!--Social media links  -->
+        <div class="social d-flex justify-content-center">
+            <a href="https://twitter.com/?lang=en" class="me-4 text-reset" target="_blank" rel="noopener"><i
+                    class="fab fa-twitter"></i></a>
+            <a href="https://en-gb.facebook.com/" class="me-4 text-reset" target="_blank" rel="noopener"><i
+                    class="fab fa-facebook-f"></i></a>
+            <a href="https://github.com/jessicafransson/bake-me-a-cake" class="me-4 text-reset" target="_blank"
+                rel="noopener"><i class="fab fa-github"></i></a>
+        </div>
+    </footer>
+    <!-- This will automatically close the alert-->
+    <script>
+        setTimeout(function () {
+            let messages = document.getElementById('msg');
+            let alert = new bootstrap.Alert(messages);
+            alert.close();
+        }, 2500);
+    </script>
+    <!--font awesome script-->
+    <script src="https://kit.fontawesome.com/af04db9847.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core JS-->
+    <script src="{% static 'js/scripts.js' %}"></script>
 </body>
 
 </html>
