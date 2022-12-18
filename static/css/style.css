@@ -43,7 +43,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: white;
+  color: #333;
   margin-top: 0;
   margin-bottom: 0.5em;
   font-family: 'Palanquin Dark', sans-serif;
@@ -68,7 +68,7 @@ a:hover {
 }
 
 .author {
-    color: #93b9c1;
+    color: #333;
     margin: 4px;
     text-transform: uppercase;
     font-size: 14px;
@@ -110,7 +110,7 @@ a:hover .card-title {
 }
 
 .pagination {
-  color: #93b9c1;
+  color: #333;
   border-radius: 35px;
 }
 
@@ -136,7 +136,7 @@ a:hover .card-title {
   /*------------------------------ Footer styling */
   footer {
     padding: 60px; 
-    color: white;
+    color: #333;
     margin-top: 10px;
     flex-shrink: 0;
     width: 100%;
@@ -145,4 +145,5 @@ a:hover .card-title {
 
   .social {
     font-size: 30px;
+    color: #333;
   }
