@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'cloudinary_storage',
     'django.contrib.staticfiles',
+    'cloudinary',
     'django_summernote',
     'crispy_forms',
     'recipe',
@@ -55,9 +57,6 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 
-    # Storages:
-    'cloudinary',
-    'cloudinary_storage',
 ]
 
 # to handle multiple sites from one database
