@@ -24,7 +24,7 @@ body {
 
 .hero-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 
-  0.1)), url("../images/heroimage.avif");
+  0.1)), url("../images/heroimage.png");
 
   height: 361px;
   width: 100%;
