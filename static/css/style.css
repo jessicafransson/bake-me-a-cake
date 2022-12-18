@@ -24,7 +24,7 @@ body {
 
 .hero-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 
-  0.1)) url("https://res.cloudinary.com/dc06hazhc/image/upload/v1671366710/heroimage_w4waiv.avif");
+  0.1)) url('https://res.cloudinary.com/dc06hazhc/image/upload/v1671366710/heroimage_w4waiv.avif');
   padding-top: 140px;
   padding-bottom: 140px;
   width: 100vw;
