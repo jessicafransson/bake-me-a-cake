@@ -17,7 +17,7 @@ body {
 }
 
 .navbar-brand {
-  color: white;
+  color: #040404;
   font-weight: 500;
 }
 /*------------------------------ Hero image */
@@ -118,6 +118,9 @@ a:hover .card-title {
   font-size: 22px;
 }
 
+.page-link {
+  color: #040404;
+}
 /*------------------------------ images */
 
 .img {
