@@ -32,6 +32,7 @@
 
     ![lighthouse](assets/images/lighthouse%20score.png)
 
+[Back to top ⇧](#bake-me-a-cake)
 -----
 
 ## User story testing 
@@ -80,6 +81,8 @@ and one for users that isn't currently logged in.
 
 ![Add recipe](assets/images/add_recipe.png)
 
+
+[Back to top ⇧](#bake-me-a-cake)
 -------
 
 ### EPIC | Sign in
@@ -134,6 +137,8 @@ and one for users that isn't currently logged in.
 
 ![Unautorized](assets/images/cant_delete.jpg)
 
+
+[Back to top ⇧](#bake-me-a-cake)
 -------
 
 ## EPIC | User alerts
@@ -179,6 +184,8 @@ and one for users that isn't currently logged in.
 
 ![Delete posts](assets/images/admin_delete.png)
 
+
+[Back to top ⇧](#bake-me-a-cake)
 -------
 
 ## Bugs 
@@ -205,3 +212,5 @@ After going over my code i changed it back to how it was previously before deplo
 (https://stackoverflow.com/questions/65076805/image-elements-do-not-have-explicit-width-and-height)
 
 ![Lighthouse error](assets/images/lighthouse_error1.jpg)
+
+[Back to top ⇧](#bake-me-a-cake)

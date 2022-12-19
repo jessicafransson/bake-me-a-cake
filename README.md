@@ -13,22 +13,21 @@ This project is built using Django Framework in Python.
 ## Content 
 
 - User experience
- * user stories
+ * User Stories
 
 - Design
- * color and inspiration
+ * Color and Inspiration
 
-- features
- *
+- Features
 
-- technologies
- * libraries and languages
+- Technologies
+ * Libraries and languages
 
-- testing (#TESTING.md)
+- Testing (#TESTING.md)
 
-- deployment 
+- Deployment 
 
-- credits 
+- Credits 
 
 
 ------
@@ -40,7 +39,7 @@ The one visiting bake me a cake is most likely someone who loves to bake, and is
 
 ## User stories
 
-Following is a list of my user stories and it can also be found [here] (https://github.com/jessicafransson/bake-me-a-cake/issues).
+Following is a list of my user stories and it can also be found here: (https://github.com/jessicafransson/bake-me-a-cake/issues).
 
 ### EPIC | Navigation
 - As a User I can immediately understand the website's purpose so that I know if it's what I'm looking for.
@@ -67,13 +66,13 @@ Following is a list of my user stories and it can also be found [here] (https://
 
 ### EPIC | Admin
 - As an Admin I can view, create, edit and delete all recipes so that I can control the website's content.
-- As an admin i can view, create, edit and delete all comments so i can control the content of the recipes.
+- As an admin i can view, create, edit and delete all comments so i can keep track of comments being posted.
 
 ------
 
 ## Design
 
-The look of this project is inspired by Code Institutes "I think therefor I blog" project and swedish pastry Queen Camilla Hamid. Find her live website [here] (https://mykitchenstories.se/)
+The look of this project is inspired by Code Institutes "I think therefor I blog" project and swedish pastry Queen Camilla Hamid. Find her live website here: (https://mykitchenstories.se/)
 
 ### Color Scheeme 
 - I wanted to keep this website basic and easy to navigate. The color of header and footer is taken from Camilla Hamid, but text is altered to a black-ish color to update the accessibility score. 
@@ -81,6 +80,7 @@ The look of this project is inspired by Code Institutes "I think therefor I blog
 
 ### Images
 - The images has been taken from pixabay that is currently displayed on the project, future images will be uploaded by various users. 
+- Some images is also taken from the actual recipe displayed. 
 
 ### Wireframe 
 
@@ -91,6 +91,7 @@ and with inspiration from earlier mentioned website [Camilla Hamid](https://myki
 
 ![Mockup](assets/images/figma_mockup.png)
 
+[Back to top ⇧](#bake-me-a-cake)
 ------
 
 ## Features
@@ -127,7 +128,7 @@ and with inspiration from earlier mentioned website [Camilla Hamid](https://myki
 
     ![Recipe view](assets/images/recipeview.png)
 
-
+[Back to top ⇧](#bake-me-a-cake)
 -------
 
 - #### Interactivity 
@@ -181,6 +182,7 @@ and with inspiration from earlier mentioned website [Camilla Hamid](https://myki
 
     ![Footer](assets/images/footer.png)
 
+[Back to top ⇧](#bake-me-a-cake)
 -------
 
 ### Accounts
@@ -222,6 +224,7 @@ and with inspiration from earlier mentioned website [Camilla Hamid](https://myki
     - To add a featured recipe that changes regularly.
     - To add boxes per category, etc one for chocolates, one for candy, one for christmas.
 
+[Back to top ⇧](#bake-me-a-cake)
 
 -------
 
@@ -249,9 +252,14 @@ and with inspiration from earlier mentioned website [Camilla Hamid](https://myki
 - Heroku, for deploying the project. 
 - Convertion, for converting JPG to AVIF. 
 
+
+--------
+
 ## Testing
 
 Testing and results can be found [here](TESTING.md)
+
+-------
 
 ## Create Repository
 
@@ -267,6 +275,8 @@ It is created with GitHub following these steps:
     5. I choose a title for my project and pressed 'create repository'.
     6. Once this is created i opened the repository and pressed the green 'GitPod' button to create my workspace. 
 
+-------
+
 ## Deployment
 
 ### To deploy this project through Heroku i did following steps:
@@ -275,4 +285,52 @@ It is created with GitHub following these steps:
     2. From the main Heroku dashboard select 'new', and 'create new app'
     3. Name your project, and select a suitable region. After this press 'create app'. (The name you choose must be unique)
     4. Previous step creates the app in Heroku and will bring you to the deploy tab. From the menu at the top you want to navigate to the resources tab. 
+    5. After this you want to add the database to the app, you do this by going to the add-ons section and search for 'Heroku Postgres', select the package that appears and add it to the database. 
+    6. Navigat3e to the settings, inside config vars you want to add the DATABASE_URL to the clipboard for the Django config. 
+    7. Create a new file in GitPod called env.py and inside set your environment table for the DATABASE_URL and paste in the copied address from Heroku. 
+    8. I created a secret key by adding SECRET_KEY in my env.py file, and in heroku. To get the secret key i typed 'openssl rand -base64 16' in my terminal. One time for a secret key to Heroku and a second time for a secret key to add in GitPod. 
+    9. Create an account in Cloudinary, or log in if you already have an account. The url is found on your dashboard in your account. Copy this and add to your env.py file. 
+    10. Paste it also into your Heroku config vars. 
+    11. You now need to add 'KEY - DISABLE_COLLECTSTATIC' with the value of 1 to the config vars in Heroku, this line must be removed before final deployment of the project. 
+    12. In GitPod you now have to add the cloudinary libraries to the list of installed apps in the settings file. The order here is important, 'cloudinary_storage' must go above 'django.contrib.staticfiles' and then 'cloudinary' goes below. 
+    13. For your settings.py file you must also add the STATIC files, the url, storage path, directory path, root path, media url and the default file storage path. 
+    14. You link this to the templates directory in Heroku with 'TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')'
+    15. You also need to add new folders in GitPod. Create media, static and template folders and a file at the top level namned Procfile (the P has to be capital - important!)
+    16. Inside the Procfile you need to add following: web: guincorn bakemeacake.wsgi.
+    17. After adding these files, commit and push these changes to GitHub.
+    18. In Heroku, go to the deployment tab and deploy this branch manually. This will lead to Heroku building this app for you, and you will be able to follow the build process in the window. 
+    19. When successful, you will be displayed with following: "Your app was successfully deployed".
 
+[Back to top ⇧](#bake-me-a-cake)
+
+-------
+
+## Credits 
+
+- Code Institute and the code-along project "I think therefor i Blog" which gave me the basic knowledge on creating a basic app, and teaching me how to use an admin panel. 
+
+- Codemy on youtube and the series "Create a blog with Python and Django"
+
+- Camilla Hamid, a swedish baking guru for recipes and style for the blog
+
+- Pixabay for usable images for the recipes
+
+- Font awesome for fonts. 
+
+- Cupcake from Flaticon, and edited in Figma
+
+- Figma for a mockup design. 
+
+--------
+
+## Acknowledgements
+
+There's a few people that has been extra helpful with this project,
+    - Del_Alumni for his endless support and troubleshooting, absolute legend! 
+    - Ken, Christian, TrevTheDev, among a few of the top legends that's been helping me when i've been stuck. 
+
+- The slack support has been a good place to turn to, the community is always very helpful and good with feedback and ideas and inputs. 
+
+--------
+
+[Back to top ⇧](#bake-me-a-cake)
