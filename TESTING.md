@@ -174,4 +174,19 @@ and one for users that isn't currently logged in.
 
 ### Fixed
 
+- I couldn't get my hero image to display on my live site. I fixed this by not linking the image in CSS from a saved image here, and updated it with a link to cloudinary and it worked. 
+
+- My CSS styles didn't follow along after deploying in heroku, image wasn't fixed at the top. 
+After going over my code i changed it back to how it was previously before deploying on heroku.
+
 ### Unfixed
+
+* I have a score on Lighthouse that i can't change for the better when it comes to two details.
+
+- It's telling me my images don't have explicit width and height on the recipe posts. I've tried to add it both onto my css and inline style without it fixing this issue. 
+
+![Lighthouse error](assets/images/lighthouse_error2.jpg)
+
+- It's telling me my images are too big, i have exported them to AVIF according to the recommendations and shrunk the size but it's still giving me the error. 
+
+![Lighthouse error](assets/images/lighthouse_error1.jpg)
