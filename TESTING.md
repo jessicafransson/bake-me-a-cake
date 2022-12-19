@@ -195,9 +195,13 @@ After going over my code i changed it back to how it was previously before deplo
 * I have a score on Lighthouse that i can't change for the better when it comes to two details.
 
 - It's telling me my images don't have explicit width and height on the recipe posts. I've tried to add it both onto my css and inline style without it fixing this issue. 
+- Images converted to AVIF after lighthouse errors on https://squoosh.app/ from png to avif
 
 ![Lighthouse error](assets/images/lighthouse_error2.jpg)
 
 - It's telling me my images are too big, i have exported them to AVIF according to the recommendations and shrunk the size but it's still giving me the error. 
+- I found this regarding this error, but i'm still getting the error: 
+
+(https://stackoverflow.com/questions/65076805/image-elements-do-not-have-explicit-width-and-height)
 
 ![Lighthouse error](assets/images/lighthouse_error1.jpg)
