@@ -74,7 +74,7 @@ Following is a list of my user stories and it can also be found here: (https://g
 
 The look of this project is inspired by Code Institutes "I think therefor I blog" project and swedish pastry Queen Camilla Hamid. Find her live website here: (https://mykitchenstories.se/)
 
-### Color Scheeme 
+### Color Scheme 
 - I wanted to keep this website basic and easy to navigate. The color of header and footer is taken from Camilla Hamid, but text is altered to a black-ish color to update the accessibility score. 
 - I also want to make sure that the images from the recipes pop-out, as users can add any image. 
 
@@ -223,6 +223,10 @@ and with inspiration from earlier mentioned website [Camilla Hamid](https://myki
     - To add a users profile page where the user can see their own recipes easily.
     - To add a featured recipe that changes regularly.
     - To add boxes per category, etc one for chocolates, one for candy, one for christmas.
+
+### General
+
+    - Set up to send email verifications when user signs up for the website.
 
 [Back to top ⇧](#bake-me-a-cake)
 
