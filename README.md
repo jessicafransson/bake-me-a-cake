@@ -1,7 +1,16 @@
 # Bake me a cake
+
+Here's a link to the live project (https://bakemeacake2022.herokuapp.com/)
 ------
-Description of this project
+Bake me a cake is a online recipe-sharing website for people that love baking, and being creative in the kitchen when it comes to cakes or treats.
+
+This project is built using Django Framework in Python. 
+
+![responsive](assets/images/mockup.jpg)
 ------
+
+## Content 
+
 ### This is a project about baking, a website to share your favourite recipes and comment and like other peoples recipes
 This is my fourth Project for Full Stack Developer with code Institute, using HTML, CSS, JavaScript, Django and Python
 

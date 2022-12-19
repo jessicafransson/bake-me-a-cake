@@ -7,6 +7,8 @@
 - [Feature testing] (#feature-testing)
 - [Bugs] (#bugs)
 
+------
+
 ## Validators
 - HTML 
     - No errors found when testing all pages on the official [W3C Validator] (https://validator.w3.org/nu/)
@@ -30,6 +32,8 @@
 
     ![lighthouse](assets/images/lighthouse%20score.png)
 
+-----
+
 ## User story testing 
 
 
@@ -48,6 +52,7 @@ and one for users that isn't currently logged in.
 
 ![User logged out](assets/images/navbar_loggedout.png)
 
+------
 
 ### EPIC | User interaction
 * As a user i can view the recipes on a page:
@@ -75,6 +80,7 @@ and one for users that isn't currently logged in.
 
 ![Add recipe](assets/images/add_recipe.png)
 
+-------
 
 ### EPIC | Sign in
 
@@ -92,6 +98,7 @@ and one for users that isn't currently logged in.
 
 ![User signed out](assets/images/signout.png)
 
+------ 
 
 ## Feature testing
 
@@ -127,6 +134,7 @@ and one for users that isn't currently logged in.
 
 ![Unautorized](assets/images/cant_delete.jpg)
 
+-------
 
 ## EPIC | User alerts
 
@@ -146,6 +154,8 @@ and one for users that isn't currently logged in.
 * As a user i get a successmessage when i have added a comment:
 
 ![Added comment](assets/images/comment_saved.png)
+
+-------
 
 ## Admin panel
 
@@ -169,6 +179,7 @@ and one for users that isn't currently logged in.
 
 ![Delete posts](assets/images/admin_delete.png)
 
+-------
 
 ## Bugs 
 
