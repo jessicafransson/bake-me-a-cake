@@ -253,7 +253,26 @@ and with inspiration from earlier mentioned website [Camilla Hamid](https://myki
 
 Testing and results can be found [here](TESTING.md)
 
+## Create Repository
+
+The project is deployed with Heroku and GitHub.
+It is created with GitHub following these steps:
+
+    To create a new repository i followed these steps:
+
+    1. Log in to GitHub.
+    2. Click the 'repositories' section.
+    3. Pressed the 'new' button, this will create a new repository page.
+    4. Choose the CodeInstitute template from the dropdown menu. 
+    5. I choose a title for my project and pressed 'create repository'.
+    6. Once this is created i opened the repository and pressed the green 'GitPod' button to create my workspace. 
+
 ## Deployment
 
-- The project is deployed with Heroku and GitHub, with following steps: 
+### To deploy this project through Heroku i did following steps:
+
+    1. Log in to [Heroku](https://www.heroku.com/)
+    2. From the main Heroku dashboard select 'new', and 'create new app'
+    3. Name your project, and select a suitable region. After this press 'create app'. (The name you choose must be unique)
+    4. Previous step creates the app in Heroku and will bring you to the deploy tab. From the menu at the top you want to navigate to the resources tab. 
 
